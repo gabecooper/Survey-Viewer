@@ -279,7 +279,7 @@
 
     .comment-card:hover {
       transform: translateY(-4px);
-      border-color: var(--primary);
+      border-color: var(--org-color, var(--primary));
       box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
     }
 
@@ -322,7 +322,7 @@
       content: '';
       width: 8px;
       height: 8px;
-      background: var(--primary-light);
+      background: currentColor;
       border-radius: 50%;
     }
 
@@ -569,921 +569,1389 @@
   </footer>
 
   <script>
-    // Embed the comments data directly
+    // Combined comments data - 260 total comments
     const commentsData = [
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 12,
-        "comment": "Conversational Hebrew, Yiddish, Ladino\nFull inclusion of sexual minorities"
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 16,
-        "comment": "Making it a space where younger people and family want to go to. It’s hard to go to shul when the political aspect is right in your face. I don’t come to shul for politics, and that is how it has felt for the last year. \n\n\nI also feel like there is a huge opportunity to have mentorship programs for working professionals. Chabad does it well with their young professional network or whatever it is called but they make it fun for people. It would be nice to have something like that at BEBY. \n\n\nGluten free options for kiddish."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 17,
-        "comment": "Belonging to a TRADITIONAL synagogue is 4 for me.  I do participate in events, but I live almost 30 minutes away, so there is a limit.  Plus there are competing events.  I come to Beth Emeth to exercise.  I already study Hebrew 3 times a week.  I try to go to Israel annually."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 18,
-        "comment": "improved welcoming of new shul participants among the members ....for example, a friendly and interactive greeter/s from the entry into the building to the entry in the sanctuaries as the model of Chabad or Aish shuls....someone at the door to make sure they have a siddur, chumash and know where to sit ....improved welcoming of strangers."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 19,
-        "comment": "In Toronto, we live in a community with many Jewish organizations. Beth Emeth shouldn't duplicate the efforts of advocacy groups or fundraising groups.  The synagogue staff doesn't have the expertise or the capacity. It should be a place of worship and study, pastoral care and community-building. It should seek to better the lives of its neighbours - Jewish and non-Jewish-- through meaningful and consistent tzedaka projects."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 20,
-        "comment": "A more efficient and proficient service always done in no more than 45 minutes on weekday mornings and no more than 2 1/2 hours on Shabbat ."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 21,
-        "comment": "Better kiddushes and the like as a way to incentivize more people to come to shul.  More free programs as a way to engage more people, especially the younger set."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 22,
-        "comment": "Ways to built friendships between members.\nCurrently difficult to talk to and make acquaintances with members you do not already know.\nIn Orthodox synagogues there is a community that brings members in.  It is not perfect but would be very helpful if \nwe could find a way to make meeting each other easier and bring the community closer."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 23,
-        "comment": "Not that I can think of at the moment."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 24,
-        "comment": "Respecting and caring for our elderly."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 25,
-        "comment": "no"
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 26,
-        "comment": "Please insure we stay a conservative synagogue."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 27,
-        "comment": "How we can engage younger people to attend synagogue and make it more welcoming"
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 28,
-        "comment": "Teach us How to defend ourselves i.e.gun training, Israeli Karate, etc."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 29,
-        "comment": "My children attend hebrew day school. Most of these questions are not relevant to them as they get the insight from school."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 30,
-        "comment": "Yes I would like our Rabbi to express his sermons with contemporary political view points when discussing the Torah and specific events challenging jews"
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 31,
-        "comment": "Programs for seniors."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 32,
-        "comment": "Shorter services on Shabbat please"
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 33,
-        "comment": "The only other area perhaps needed was asking about attending online instead of in person. I think the video is great. Now I can go to shul without going to shul."
-      },
-      {
-        "organization": "Beth Emeth Synagogue",
-        "row": 34,
-        "comment": "encourage spouses or partners of members to attend (shabbat) services. i/we see many solo, mostly men, without their significant others.\nalso, the atmosphere in the synagogue is (almost) toxic. i/we feel like ousiders. there is rarely a nod or a gesture of \"shabbat shalom\" from long-time members. many cliques."
-      },
-      {
-        "organization": "JBO",
-        "row": 9,
-        "comment": "Ik vond het een hele nare lijst om in te vullen. Bij de Ivriet lessen zie ik veel knutseltjes langs komen. Ook didactisch en pedagogisch kan bij deze docenten een slag gemaakt worden. Jahadoet is voal veel van hetzelfde. Eind groep 8 wisten de leerlingen de aardvaders en moeders niet eens te noemen."
-      },
-      {
-        "organization": "JBO",
-        "row": 10,
-        "comment": "I would like for the young people we send off into the world to be aware of different opinions and faiths, for them to be able to navigate a world where people think and believe different things and be happy in their own skin, faith and life. For this education to work, it is important that our students interact with people of different faith, opinions and heritage and learn to work together with them."
-      },
-      {
-        "organization": "JBO",
-        "row": 11,
-        "comment": "Teach the students to be proud and happy Jews"
-      },
-      {
-        "organization": "JBO",
-        "row": 12,
-        "comment": "We should raise our pupils to be proud and self assured Jewish human beings who have sufficient knowledge of Jewish text, tradition and history, who have sufficient skills to participate in a Jewish environment with all of its praxis, ways and customs and who have a sense of belonging among the Jewish people through shared values. We should raise our pupils to be motivated to pursue a Jewish lifestyle. They should give Judaism a prominent place in their home, be an active part of their Jewish community and able to connect to Jews worldwide through a shared language and country. Our alumni should know both Torah and science as they complement eachother. Our alumni should always know that they are part of a larger world with an array of people, communities, languages, religions and values, which should all be respected."
-      },
-      {
-        "organization": "JBO",
-        "row": 13,
-        "comment": "I realize that it is very difficult to please everyone. We are a Modern Orthodox Jewish school, but most students are not orthodox at all. For some children there is also resistance to orthodoxy from home, yet parents choose Maimonides for socially desirable reasons. This makes it difficult to keep everyone satisfied. Still, I do feel that there is currently a positive and clearly visible return of Yiddishkeit at the school."
-      },
-      {
-        "organization": "JBO",
-        "row": 17,
-        "comment": "I believe level of hebrew taught is too low. No bagrut, or similar 'exit' level is offered."
-      },
-      {
-        "organization": "JBO",
-        "row": 18,
-        "comment": "Goed leren discusieren en zien dat verschillende perspectieven naast elkaar kunnen bestaan"
-      },
-      {
-        "organization": "JBO",
-        "row": 22,
-        "comment": "I believe the school should be giving the children a Good foundation to learn about the religion, Israel and our community. This should be done whether or not the people who attend the school actually practice at home. In the uk, most Jewish schools follow the program of the United synagogues so the children get a good basis. It should be a modern orthodox school that gives the kids a good foundation for their Jewish lives."
-      },
-      {
-        "organization": "JBO",
-        "row": 23,
-        "comment": "Learning more about the mystical/spiritual side of Judaism. To understand the framework of the universe and our part in it."
-      },
-      {
-        "organization": "JBO",
-        "row": 24,
-        "comment": "Give place also to Jewish secular culture with an emphasis on Jewish life in Europe and in Netherlands. Build local Jewish community."
-      },
-      {
-        "organization": "JBO",
-        "row": 25,
-        "comment": "Ik vind sommige vragen misleidend. Als leren over de geschiedenis van de staat Israël betekent dat je het altijd eens bent met het huidige regime, dan is het niet de geschiedenis van Israël, maar een standpunt. Een krachtig pleidooi voor de staat Israël kan ook betekenen dat je kritisch bent op de gebeurtenissen.\nMeer kritisch denken is vereist."
-      },
-      {
-        "organization": "JBO",
-        "row": 26,
-        "comment": "Being open to diverse influences, helping children grow into good human beings, and avoiding a narrowly focused, exclusively Jewish perspective. Encouraging them to engage actively in Dutch society, to learn from other cultures, and to understand that being a good Jew is part of being a good person—without making distinctions based on ethnicity, gender, or religious affiliation."
-      },
-      {
-        "organization": "JBO",
-        "row": 27,
-        "comment": "Our kids should be proud and confident jews!"
-      },
-      {
-        "organization": "JBO",
-        "row": 28,
-        "comment": "It would be nice to focus on the things that make Judaism beautiful and positive instead of always focussing on everything that is not allowed or that is different. It gives Judaism a negative perspective this way. Also I would like my children to know more about the outside world. You can create a strong and proud Jewish identity, while they also learn about other cultures."
-      },
-      {
-        "organization": "JBO",
-        "row": 29,
-        "comment": "We’re really happy with Rosj Pina, what a warm place and also I would say healing place for our daughters after what they experienced in other schools before. The best way to heal is to create positive patterns, and the classmates and other moms have really also helped in that process. At the same time, connecting with Maimonides has been harder. One of the main teachers does not respond to all emails (like: asking to be able to leave on time for Shabbat on Fridays because we really don’t want to be forced to break Shabbat because we live further away). Also some teachers seem to be less familiar into how to deal with students with special needs like ADHD. For one subject our daughter gets extra time, for another not. My daughter really likes the Jewish studies subject and the Rabbi, but it would be great if a Dutch teacher also takes our daughter serious when she says she cannot stay overtime on Fridays because Shabbat and Halacha are so important to us. It feels a bit strange to have to defend our Jewish identity and Halacha on a Jewish school. Also, some things are given up which I understand compared to primary school - there is no communal time to do birkat hamazon together because the students have more freedom. At the same time, they are or are almost bat or bar mitswa age and doing tefilah together would be really great, or hanging Asher Yatzar next to the toilets, etc."
-      },
-      {
-        "organization": "JBO",
-        "row": 30,
-        "comment": "I would love to see stronger alignment between Rosh Pina and Maimo.\nWhile RP invests significantly in Jewish content and practice, I would have expected this foundation to continue growing in depth and complexity once students transition to Maimo. Unfortunately, I feel the opposite is happening.\n\nSome basic elements—such as dress code, kippa norms, participation in morning prayers, and engagement in Rosh Chodesh or High Holiday activities—seem to have been dropped entirely. I’m not suggesting that everything must happen daily, but I do believe that certain symbols and practices are important to maintain.\n\nFor example:\n\nKippa as a consistent symbol of Jewish identity (especially since most children come from Rosh Pina and are already accustomed to it).\n\nMorning prayers once a month for Rosh Chodesh—a manageable rhythm that still builds continuity.\n\nMore in-depth or philosophical Jewish studies, which could challenge the students, spark curiosity, and strengthen both their knowledge and connection.\n\nI believe these elements would help create a smoother educational progression, reinforce the values and habits students have already built at RP, and enrich their Jewish experience at Maimo."
-      },
-      {
-        "organization": "JBO",
-        "row": 31,
-        "comment": "It might nog be a good idea to have kerstmis (christmas) books laying around in school."
-      },
-      {
-        "organization": "JBO",
-        "row": 32,
-        "comment": "Answering the questions as parents with kids in primary school is very different from having kids in high school."
-      },
-      {
-        "organization": "JBO",
-        "row": 33,
-        "comment": "You were very thorough and reminded me of issues I haven't thought about in a long time! thank you"
-      },
-      {
-        "organization": "JBO",
-        "row": 34,
-        "comment": "Stick to the core, teach the actual Jewish religion instead of just talking about it endelessly. Teach chumash with Rashi, teach tenach, teach Mishna, teach Halacha, teach Tefila, teach Mitzvot. Give children actual Jewish knowledge and skills. Stop bringing up generations of Jewish people who don't actually know what they are talking about when they are talking about Judaism."
-      },
-      {
-        "organization": "JBO",
-        "row": 35,
-        "comment": "Judaism is the religion of empathy - Vehaavta Lereaha Kamoha - A central theme of Judaism that has constantly been degraded and forgotten.\nTeach empathy and compassion to our kids towards others, including toward those who are not Jewish."
-      },
-      {
-        "organization": "JBO",
-        "row": 36,
-        "comment": "Learning Hebrew and having good Jahadut teachers is 4e I suggest that all children turning 12 or 13 in the same year could have a collective bat/bar mitzvah at school, with parental support."
-      },
-      {
-        "organization": "JBO",
-        "row": 37,
-        "comment": "The difference Jewish backgrounds of the pupils should be taken more into account, especially when it comes to outside of school activities (no birthday parties on shabbos, always informing about kasrus etc)"
-      },
-      {
-        "organization": "JBO",
-        "row": 38,
-        "comment": "When I was a student at Maimonides myself I was one of the only members of the LJG and it shocked me that   there was so much \"bad talk\" and prejudice about our congregation. The one I loved so much. It made me feel inferior. In my Maimonides time I have learned a lot about the more orthodox ways to experiencing Judaism and I loved it. I am still grateful I have had this opportunity. I would love the students of this generation to be taught mutual understanding and respect towards all the ways to live a Jewish life, especially towards the LJG."
-      },
-      {
-        "organization": "JBO",
-        "row": 39,
-        "comment": "Bedankt voor je inspanningen"
-      },
-      {
-        "organization": "JBO",
-        "row": 40,
-        "comment": "Not an answer to the question, but as there is nog space for remarks, I jot them down here. \nThere is a difference between what you can learn in school and at home. About cooking, Jewish rituals, a big part of it is transferred at home (as well). So sometimes hard to answer. \nAlso it feels very America-focused, with terms as 'advocation for social justice'. It's hard to imagine what it would mean here in our community, with a total different infrastructure. \nSometimes the statement contained more then one issue. For example: Taking action to care for the environment in ways guided by Jewish values. - Yes for taking action to care for the environment. Though, regardless of Jewish values. If they can support it, great, if not we still should do it. \nAnother statement about diverse believe in God. It totally depends on who teaches it, how it will be perceived. I mean 5 diverse, with no agenda and open philosophical possibilities. That might be different from what school is able to offer with the teachers. - So the statements are answered from my perspective and it's hard to see if that matches with wat the makers of the survey have in mind."
-      },
-      {
-        "organization": "JBO",
-        "row": 41,
-        "comment": "Eventhough I consider many of these things 4, I don’t think it is realistic to expect JBO to play an active role in all these areas"
-      },
-      {
-        "organization": "JBO",
-        "row": 42,
-        "comment": "Integrate Jewish themes into the everyday school experience.\nCould choose a different theme each week and use that theme in all topics."
-      },
-      {
-        "organization": "JBO",
-        "row": 43,
-        "comment": "please stay clear in the direction, eep the school modern ortodox, without sneaking the liberal/reform streams that are confusing the children"
-      },
-      {
-        "organization": "JBO",
-        "row": 44,
-        "comment": "When i look at what i deem important, I thinkt the kids should start school at 3 am and finish at 1 am. So it is way too much to cover. Celebrate diversity between jews and non -jews. Make them have strong identities but not live secluded."
-      },
-      {
-        "organization": "JBO",
-        "row": 45,
-        "comment": "More in depth learning for groups 3 to 8 like the weekly parasha/ more tefilah in the mlrnkng/ preparation for bar and bas mitzva/ more in depth Hebrew classes in order they know basisc when entering highschool"
-      },
-      {
-        "organization": "JBO",
-        "row": 46,
-        "comment": "Learning Hebrew is 4\nThe connection with, and the history of israel is 4, as is knowledge of israel & Israeli society today.\nThe freedom to choose your own way of living a jewish life and respecting all choices of others. So not one religious perspective."
-      },
-      {
-        "organization": "JBO",
-        "row": 47,
-        "comment": "I think it is important that he learns that every one can live his (Jewish) life in his own way. There is no wrong or right. \nAnd I think it is important our son learns that much about the religion, culture and Israël that he feels himself very comfortable in the Jewish evironment. \nAnd because of 7 October it is important to learn to stay proud to be Jewish and proud about Israel."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 9,
-        "comment": "The JCC is about community. We are the “hub” for Jewish Connection!!!"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 10,
-        "comment": "Celebrating Jewish community contributions to broader central Ohio community and build understanding of assimilation and how many jews by upbringing have chosen to marry non-jews and create homes full of Judaic and Christian, ( even Islamic) and broader humanistic values and understand the historical relationships of Jews and their extended families of non-Jews to the homeland of Israel and living in exile as a \"chosen\" people."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 11,
-        "comment": "It occurs to me that I may simply be unaware of many of the programs that the JCC offers (if indeed there is a large offering of Jewish classes/resources that are commonly utilized).  From my point of view, the JCC does daycare, preschool, fitness related things, camp, afterschool, and a community program here and there.  The most consistent \"Jewish\" thing that I know of happenning is all of the stuff coming out of the theatre and cultural spaces (maybe because they are the most prominently displayed to me)."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 12,
-        "comment": "no"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 16,
-        "comment": "I think all of my answers change if I look at the responses through the perspective of Early Childhood.  In those instances for a lot of families JCC preschool is their only jewish education, where they learn about Shabbat about holidays, hebrew and jewish customs.   So I think that needs to be taken into account.  I thought about it from an adult perspective."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 17,
-        "comment": "The JCC of Greater Columbus provides the environment to encourage Jewish life ,and learning on \na daily basis.Enough said."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 18,
-        "comment": "JCC acts as a place for a community both Jewish and non-Jewish to come together on daily basis.  It's in a unique place as Jewish institution to do that on a daily basis.  It's in essence a marketing tool for the Jewish community in that respect, especially given the location of the one in Columbus."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 19,
-        "comment": "No, but some of the things that were asked are covered by other organizations in the community. I guess that's a discussion we could have as to whether the JCC should also (or in combination with others) offer things like Hebrew, Torah study, etc. \n\nWe do need to be careful not to spread ourselves to thin, but, perhaps, we could ask other organizations to do things at the JCC."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 20,
-        "comment": "Many of the items listed, historically have applied to synagogue connections. Trying to understand why the questions were included and if the J is looking to fill a void (for community members who are not connected to a synagogue)."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 24,
-        "comment": "Many of these questions I feel are more of the purpose of a synagogue, not the community rec center.  So while I feel that learning Jewish texts, as well as prayers are 5, it's more of the role of a Kollel or Synagogue to carry than the JCC.\nThe JCC needs to figure out how to recreate a JEWISH atmosphere.  When there are more people who are not Jewish utilizing this amazing facility than Jewish, we need to be introspective about the need that is being fulfilled for the Jewish community.  The farther we move from following Jewish law and tradition, the farther we fall from serving the long term needs of the Jewish community.\nThink of the word Haimish - start with the preschool - that's where most families begin their interaction.  There is a very warm environment - it just needs to be more spiritual.  Stop with the diversity talk and social justice survey questions - we are here to serve our Jewish community. Period!"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 25,
-        "comment": "No. I believe somethings belong in the home or synagogue and communal things belong at the J."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 26,
-        "comment": "Thanks for asking"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 27,
-        "comment": "I think that the JCC should be open to Jews of all religious practices. The specific religious practice should be left to synagogues. I don't feel that Israel should be the focus of Jewish life. Not all of us aspire to live in Israel and do not consider Israel to be the center of Jewish Diaspora life. We have a rich history across the world, this should be a focus of learning and cultural observance available to all Jews."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 28,
-        "comment": "We're frequently disappointed by the lack of unstructured opportunities for kids. For example: a bored adult can head to the JCC and work out or play. A bored kid can only use the track, the pool (when available), the basketball gym (when available) or the racketball courts (when available). We'd love to see the JZone opened up for free play for elementary aged kids!! This would increase the engagement of adults too because we could bring our elementary aged kids to the JCC with us while we worked out. Also, surely some of the exercise equipment could be made available to kids younger than 13."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 29,
-        "comment": "More programs like Avi Melamed's \"Inside the Middle East Institute!\" It's important to understand the politics of the Middle East as a whole."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 30,
-        "comment": "Love what Jewish life the JCC offers.  Would love conversational Hebrew lessons."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 31,
-        "comment": "Mainly maintaining a safe and Jewish Space.  I believe the JCC of Columbus has done a nice job.  Thank you"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 32,
-        "comment": "The majority of the learning opportunities mentioned, including both group and individual learning opportunities, are available through programming at local synagogues and with rabbis.  I view the JCC being a place to focus on being a gathering place to participate in social activities with other Jews."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 33,
-        "comment": "No.  But  I wanted to clarify that many of the items listed in this survey are fully addressed by my synagogue membership so I responded to this survey accordingly."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 34,
-        "comment": "Overall, Jewish life and learning Jewish values, language and culture is 5 to us, and is a non-negotiable for our family. It is both our religion and who are we / our identity. Learning all facets of Judaism, from food to language to music, is vital for a Jewish life, being embedded in the Jewish community, and knowledge is power. Without a strong Jewish foundation, it is hard to grow up and continue faith. Laying the groundwork from a young age is so essential. My husband and I both went to Jewish day school K-12 along with JCC (both but in different states), and we feel is it extremely imperative."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 35,
-        "comment": "Because Jews have different ways to observe traditions, the JCC needs to keep these their celebrations generic (for lack of a better term). The JCC is not a place of worship nor should members feel left out because of their own observances."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 36,
-        "comment": "The JCC should be a home to Jewish live and community.  To me, that means spirited activities that celebrate Judaism and Israel - Israel's Independence Day, Sukkot, Bar/Bat Mitzvahs - and meaningful moments for Jews - Rosh Hashanah, Yom Kippur.  There should be continual life and liveliness at the JCC embodied through the ECLC, Camps, and active sports (swimming, basketball, pickle ball, etc.).  The Columbus JCC should be a staunch, steadfast supporter of Israel.  The Columbus JCC should be a space that Columbus Jewry can convene together in community (big events that cross Jewish groups in the community, e.g. remembrance of October 7th)."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 37,
-        "comment": "In my view, the main goal/mission of the JCC is to build and support the Jewish Community in Columbus, full stop. It's not a religious or spiritual entity (which is for synagogues/temples), it's not a political space, it's not to support or defend Israel. It's definitely not a place to advocate for one's political views in Israeli politics (which itself is very divided). I support the JCC because I want a vibrant Jewish Community in Columbus and I want a physical space where Jews -- and friends of Jews -- feel welcome and can interact organically with each other through activities, arts, education, and sports, etc. Any programming that supports \"community making\" should be encouraged. Any activity that divides the community or does not enable this goal should be questioned.\n\nIf there is a secondary mission, it is as a health center to help support the health of the Jewish Community in Columbus. Being healthy and learning healthy habits is also an important part of being Jewish -- to respect life and our human body."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 38,
-        "comment": "I find it an ironic survey as I don't feel the JCC does a minute amount of what the questions are asking. There seems to be little programming or concern for the diversity of what many in this area value as the Jewish community and many of the issues presented in the survey. It seems to us that the focus on diversity is more about \"social justice,\" lgptq, racial issues and the like and far less about preserving actual Judaism. Honestly, I was confused by many questions as the dilution of holiday practices by the JCC like picking to close on day of a holiday and yet making the decision to dilute the historical Shabbat practices. In reality, the JCC is serving more about he entire community with a little Jewish stuff thrown in when it is important. You asked and those are our and many of our friends perceptions which is also why more and more our friends are going elsewhere."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 39,
-        "comment": "The JCC is an ideal place to meet other Jewish people of varying levels of observance.  Yet, it need not duplicate classes or religious services offered by local synagogues."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 40,
-        "comment": "How to access resources to raise a child who is a leader in the Jewish community. What options are there for what ages? Where can this be found? Help navigating this would be great."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 41,
-        "comment": "more focus on addressing the needs of older adults, not just programs for families and kids.  thanks for listening ."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 42,
-        "comment": "I value the inclusivity at the JCC."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 43,
-        "comment": "'- Interfaith marriages, couples and families. \n- groups to support those who have lost a spouse.\n- support for those who have survived significant illness either mental or physical."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 44,
-        "comment": "Judaism is much bigger than the modern state of Israel, and I wish there were more opportunities to participate in Jewish spaces without needing to connect everything back to that country. I want to raise my daughter Jewish, but not Zionist."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 45,
-        "comment": "Much of what the survey covered were things that I believe are religious and should be done in the synagogue not the JCC. The JCC is more about cultural Judaism not so much religion."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 46,
-        "comment": "I am not Jewish but am fully supportive of everything the JCC offers for both Jews and Gentiles. I am proud to belong here but most of my focus is on health and wellness."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 47,
-        "comment": "Great survey, thank you1"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 48,
-        "comment": "My family gets a lot of these types of offerings through our Orthodox synagogue involvement, so I also answered considering what I hope the JCC can bring to Jewish people who aren't as engaged in Jewish life (yet). Thank you."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 49,
-        "comment": "Many questions in this survey have to do with issues addressed by other institutions like synagogues, Jewish day schools, JewishColumbus, JFS.  Where it applies to preschool, age-appropriate lessons on religious and educational issues are necessary but, after that, the JCC shouldn't be trying to duplicate efforts better facilitated by other institutions.\n\nThe JCC should lean into programming that enable Jews to congregate as a community in a central location as often and for as long as possible. There must be programming for young people, after preschool age, other than basketball leagues and summer camp, that brings and keeps the JCC and Jewish programming a vital part of their lives."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 50,
-        "comment": "A lot of these questions pertain to things the synagogues should be doing.  However the Center has the ability to draw from all parts of the Jewish community, which the synagogues don't seem to be able to do.  There should be more events where people can interact with each other, also more discussion of our role and responsibility to America and Israel.  These discussions should not be filtered and limited unless very extreme."
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 51,
-        "comment": "cleanliness \nget rid of carpets mop and sanitize daily multiple times daily the JCC is filthy. Dirtiest i’ve been to in the country"
-      },
-      {
-        "organization": "JCC of Greater Columbus",
-        "row": 52,
-        "comment": "Find a way to connect the JCC to people living all over Greater Columbus and not necessarily just in Bexley."
-      },
-      {
-        "organization": "JCDS",
-        "row": 9,
-        "comment": "Pluralism"
-      },
-      {
-        "organization": "JCDS",
-        "row": 10,
-        "comment": "No."
-      },
-      {
-        "organization": "JCDS",
-        "row": 12,
-        "comment": "The survey does touch upon this to a small degree, but our community is in serious need of conversations around Israel that include a true multitude of perspectives on Israel, including troubled/skeptical/negative ones. The level of nuance we apply to our discussions of Israel is minimal at best, and while it is generally understood why that is the case (our school is 1/3rd Israeli), I still believe we are setting up our students for trouble down the road by not exposing them to the true breadth of opinions and perspectives on Israel and/or categorically defining criticism of Israel as antisemitic."
-      },
-      {
-        "organization": "JCDS",
-        "row": 13,
-        "comment": "It was nearly impossible for me to accurately answer these questions as a 2nd grade general studies teacher. It makes it seem like my role in the school is of no value because I do not teach Jewish texts or culture. I have serious questions about the data collected here. I am sitting with math teachers who also have no idea how to answer any of these questions."
-      },
-      {
-        "organization": "JCDS",
-        "row": 14,
-        "comment": "Thank you!"
-      },
-      {
-        "organization": "JCDS",
-        "row": 15,
-        "comment": "We are school that prioritizes joyful Jewish learning, living.  We are K-8 so the affective education is primary.  As our students reach the 8th grade more of the content related to Israel, Zionism, Holocaust history, Jewish history are emphasized. Israel education in the K-7 grades is 4 but very much a work in progress."
-      },
-      {
-        "organization": "JCDS",
-        "row": 22,
-        "comment": "The world is so polarizing right now. I want my children to learn about how to engage in conversations with people of all backgrounds and ideas even if they are different from theirs. I want them to learn Jewish history and the connection to Israel and the Jewish people. There was so much focus on this when I was a kid, and I find many adults who grew up in that environment are using some of these learnings as a weapon on social media. I want them to be able to hold many truths at the same time and stay grounded in empathy. This is not easy, and it's a skill I want them to learn even if it feels hard and is uncomfortable at times."
-      },
-      {
-        "organization": "JCDS",
-        "row": 23,
-        "comment": "Joy. We value JCDS' approach to engaging with _joyful_ Judaism, and what it means for our children and our family in their development as Jews. (As a side note: Gann's explicitly pro-Zionist stance, which is effectively a pro-State-of-Israel stance verging on anti-Palestinian stance, is wildly uncomfortable and inappropriate, and we appreciate the more nuanced presentation of Israel as being _more_ than the current government of the state Israel, led by Israelis.)"
-      },
-      {
-        "organization": "JCDS",
-        "row": 24,
-        "comment": "It wasn't clear in the wording of the survey whether these offerings/foci were for kids, parents, families, staff, etc. That will affect your results. I'm also less clear now than before on what JCDS prioritizes/does well and thinks is important to focus on in terms of their curriculum versus what they ought to offer the community."
-      },
-      {
-        "organization": "JCDS",
-        "row": 25,
-        "comment": "Respect and understanding of the full range of Jewish denominations. Exploration of the many meanings of what people mean when they talk about God, the many concepts and names for God, and giving space for agnosticism."
-      },
-      {
-        "organization": "JCDS",
-        "row": 26,
-        "comment": "I wish the middle school curriculum offered a stronger emphasis on Jewish practice and Jewish text study. There's a considerable gulf between what my child is learning in Social Studies, English, Math, and Science on one hand and Tanakh and Toshba on the other."
-      },
-      {
-        "organization": "JCDS",
-        "row": 27,
-        "comment": "JCDS on its surface is very pluralistic (\"everyone is welcome\") but in reality, over the  years, I have seen many people excluded from this weird community. I would really make it a priority to make everyone truly welcome. Not only those types of \"different\" that for some reason are acceptable."
-      },
-      {
-        "organization": "JCDS",
-        "row": 28,
-        "comment": "Two thoughts:\n1. There is a general fear in Israel education that learning about Israel's faults, or critiques people (especially Palestinians and anti-zionist Jews) have towards the state of Israel will prevent students from forging a connection with Israel and maybe will even distance students from Israel and Jewish life all together. I don't think we should give in to this fear, even if those outcomes might be true for some of the students. \n2. It is not that I am opposed to teaching advocacy skills, I just have questions about what JCDS would be encouraging students to advocate for or what the process looks like for determining what that would entail."
-      },
-      {
-        "organization": "JCDS",
-        "row": 29,
-        "comment": "Developing pride in being Jewish."
-      },
-      {
-        "organization": "JCDS",
-        "row": 30,
-        "comment": "4 to please remember that not all parents are fluent in Hebrew terms or common expressions, so to strive to provide translations in print or speech when possible. Thank you for creating such a welcoming and supportive space!"
-      },
-      {
-        "organization": "JCDS",
-        "row": 31,
-        "comment": "We would love to see a greater effort to connect with interfaith families and explore how that identity shapes who we are in the community. Also a greater effort to discuss conversion and race."
-      },
-      {
-        "organization": "JCDS",
-        "row": 32,
-        "comment": "Currently, some of the Hebrew levels mean that non-Israelis do not get to practice their Hebrew skills with Israelis.  While it is important that everyone gets to practice Hebrew at the best level for them, one of the gifts of being at JCDS is the ability for American kids to learn Hebrew from Israeli kids.  It would be great if monthly, or weekly, or some at some other cadence, the lower levels of Hebrew would get a chance to practice their Hebrew with the higher levels."
-      },
-      {
-        "organization": "JCDS",
-        "row": 33,
-        "comment": "In general, I feel that there should be a separation of any political issues (american or israeli) from the learning in school - I think this detracts from a safe space and cohesive community. I also do not feel that the 'palestinian perspective' or any narratives on nakba have a place here, especially for younger students. I am hoping the school focuses on biblical connection to the land of israel, and love of the land. \nI appreciate the focus on jewish religious practices, traditions, torah, mitzvot - as well as reading, writing, and math!"
-      },
-      {
-        "organization": "JCDS",
-        "row": 34,
-        "comment": "In general, I want my children to be proficient in learning the sacred texts, language, history, customs and rites of the Jewish people. \n\nSo many questions on this survey addressed aspects of Jewish meaning, purpose, interpretation in modern life.  JCDS is pluralistic, so when JCDS teaches values, I don’t know what that means or what you are teaching. What are the specific Jewish values of JCDS?  And this is why JCDS is not a place we seek or enjoy community engagement. The community isn’t based on concrete values that  we need to bind us together in shared purpose. \n\nIf JCDS wants to be a serious Jewish Institution that families turn to for community Jewish engagement, there have to be shared common Jewish principles that turn people into a community instead of awkward acquaintances who might not have a single value in common. I would be so thrilled for JCDS to challenge itself and grow a coherent, serious Jewish identity for us to coalesce around. \n\nThat said- my kids are very happy and enjoying school!"
-      },
-      {
-        "organization": "JCDS",
-        "row": 35,
-        "comment": "Explroation of diversity of subcomunities within the larger Jewish community (eg Ultra Orthodox, Satmer, Chasidism etc)"
-      },
-      {
-        "organization": "JCDS",
-        "row": 36,
-        "comment": "We are very pleased with holistic offerings at JCDS!"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 9,
-        "comment": "We are working on rebuilding the tefillah program at JDS and I look forward to when it is able to be more robust and the students have the skills that they used to have."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 10,
-        "comment": "Take traditions and rituals and continually reinterpret them for the modern world so as to connect with people who are more progressive or secular in their religious practices."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 11,
-        "comment": "I teach 1st grade, so my answers are mostly my perspective of what is being taught in 1st grade."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 12,
-        "comment": "I *strongly* urge JDS to consider bringing Jewish opponents of the Netanyahu administration and/or Israel's military campaign in Gaza (which at this time is still ongoing, despite an inconsistent ceasefire and apparent progress toward peace), including potential state-building efforts in Gaza, to speak at JDS. I think it is 4 that students develop a more complete and nuanced understanding of this issue and become more aware that Jews (in the United States, Israel, and around the world) are by no means united in support of the Netanyahu administration or Israel's military campaign in Gaza. (In fact, reputable polls suggest that a majority of American Jews are opposed to Israel's military campaign in Gaza.)"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 13,
-        "comment": "I think the survey was very comprehensive!"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 14,
-        "comment": "no"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 15,
-        "comment": "There is a huge emphasis on tradition which is great; while at the same time it blocks out many efforts towards having positive impacts within the school community and in the wider community. The focus feels almost exclusively on Jewish traditions and little else."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 17,
-        "comment": "This is just a personal preference but I would like to see the school focus more on instilling beautiful Jewish values than Israeli identity."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 18,
-        "comment": "I washed sure about a lot of the things."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 19,
-        "comment": "I'm assistant teacher in first grade and also non Jewish so many questions were hard for me to answer as I don't have information about Jewish learning happening in upper grades."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 26,
-        "comment": "It's 4 to me to make sure that Jewish students understand that critical thinking and human rights are essential to Jewish life and values and to understand and honor a multiplicity of perspectives, Jewish and non-Jewish alike, regarding current events."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 27,
-        "comment": "I’d like to see the school lean further into the “J” in JDS. Strong academics matter and should continue, but families don’t choose JDS for a secular experience with a light layer of Judaism on top. The school has an opportunity to give students real literacy in Jewish life: not only Hebrew and holidays, but the calendar, rituals, traditions, and the range of current practice across denominations, the diaspora, and Israel.\n\nThere’s a large body of Jewish knowledge that most adults don’t fully learn, and JDS is one of the only places where kids can get that foundation. It’s a real differentiator from other K–8 private schools. This doesn’t require promoting one style of Judaism or weakening the general studies program. It means treating Jewish learning as a deep, ongoing curriculum. More exposure to Israelis, Orthodox communities, and the range of Jewish thinkers and practices would strengthen that mission.\n\nIf JDS wants to cover topics like the environment or feminism, there are Jewish organizations (even in the orthodox world) and Jewish sources that approach those subjects from inside the tradition. “Tikkun olam” doesn’t need to default to work centered on non-Jewish causes. Students should see how these themes already live within Jewish life."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 28,
-        "comment": "I think in general, our kids unfortunately need to learn how to handle verbal attacks of lies and misinformation; having the knowledge of actual facts to counter the lies and having the skill-set to be able to calmly handle a heated confrontation. Anything JDS can do to help support learning those skill sets would be greatly appreciated"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 29,
-        "comment": "In an ideal world, everything in this survey is prioritized to some extent. I want my child exposed to a diverse array of Jewish thought, ideas, people, prayer, culture, spirituality. This includes multiple narratives when it comes to Israel, halacha, and other controversial Jewish thoughts. I want her to be able to develop a strong sense of Jewish identity and experience Jewish pride and joy regularly without being told how to think or act jewishly or that this is any one right way of being Jewish.\nI see myself as a happy and willing partner (and even guide) in her Jewish education, and know that my vision above cannot exist in a vacuum at school without being fully supported, and even initiated at home."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 30,
-        "comment": "I think it is 4, when addressing the narratives of the Jews and Palestinians that it is done in a STRICTLY fact-based and historical manner. The personal opinions or feels of those teaching this topic cannot be a component, no matter which way they sway. Teaching so that it is understood that Jews are indigenous to Judea (modern day Israel) AND that fact doesn’t exclude Palestinians from living there side by side in peace is important."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 31,
-        "comment": "American Patriotism: Supporting and discussing the role of being an American Jew or a Jewish American (i.e., how does being an American affect being Jewish and the other way around)."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 32,
-        "comment": "As we approach a big Christian holiday season, I realize my children feel envious of the environment and their lack of participation. It is important for them to understand the sensitivity of respecting other while still feeling confident and proud to be Jewish through what I can only imagine is a hard time for a child to watch so much celebration and their own holidays are rarely acknowledged in relation with the larger population."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 33,
-        "comment": "It is critical that the school offer text-based learning in the original Hebrew and daily prayer services (with actual traditional prayers in Hebrew), which is a core tenet of religious practice and study for a major portion of the practicing Jewish community.  This is a basic building block provided by leading Jewish schools across the country (and world).  Not offering these critical parts of Jewish education and experience actively excludes a large segment of potential families from the school."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 34,
-        "comment": "In general I prefer the children learn Jewish and Hebrew subject that are more relevant for modern Life and less about prayers and ancient costumes or rituals."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 35,
-        "comment": "Would love to learn more about Ladino!"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 36,
-        "comment": "Yes. Don’t discriminate against Orthodox Judaism."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 37,
-        "comment": "The survey made a habit of lumping together ideas that should have been separated.  It’s exactly what I was cautioning against before this went out to the community.  Ours and beyond. The survey was leading in many areas, without providing examples for statements left for reader discretion, or areas for comments by the reader to clarify.   again, exactly what we should have taken extreme care to avoid.  - Erez."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 38,
-        "comment": "All of the topics mentioned are 5. The challenge is knowing whether the faculty will approach these subjects in a way that honors the mission of the school and are in-line with the mainstream views of the Jewish community."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 39,
-        "comment": "Eager to hear these results"
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 40,
-        "comment": "Some of the questions were confusing to me because, while I absolutely want my children to be exposed to multiple perspectives and to uphold the dignity of all people, it is equally important to me that this is always done through a Jewish and Zionist lens. If I wanted my kids to receive a general education without an emphasis on Jewish tradition, culture, and values, I could do that without paying the premium of a JDS education.\n\nI have been personally struggling with continuing to pay for this school when I don’t currently feel that the administrators—and quite frankly, many of the teachers—fully understand the weight, purpose, and necessity of a strong Jewish education, nor do I feel confident that they are qualified to deliver it. I also don’t feel that parent feedback is welcomed or valued, which makes the school feel uninviting at times. Friends who send their children to other Jewish day schools describe being regularly welcomed into prayer and ritual experiences, and I would never feel comfortable joining here. I’m not even certain that regular tefillah or halachic practice is taking place. For example: Do boys wear kippot? Are students learning a full Shacharit or Kabbalat Shabbat service in preparation for their b’nai mitzvah?\n\nAdditionally, I have received several worksheets that appear to be sourced from random corners of the internet. One even included a questionable map of Israel that caused significant concern for my family. It is unclear whether there is meaningful oversight, expectations, or standards around curriculum—especially regarding Jewish and Israel education.\n\nI truly hope this survey provides useful insight and leads to positive change. I deeply want to feel confident continuing to send my children to this school, and I believe that strengthening these areas is essential for that to happen."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 41,
-        "comment": "The questions were leading and lumped together pairs of things that should have been separated.  The Wokism was ridiculous and should be wholly abandoned.   Sadly, we wasted a valuable opportunity to get honest and meaningful information from our current families."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 42,
-        "comment": "We send our kids to JDS largely because of Jewish values.\n\nWe have a particular concern about how much of the Jewish community in the Seattle-region does NOT have strong sense of Jewish values.  In particular, many have far left progressive values (one might use the term woke values), and they often repurpose their alleged Jewish values to instead focus on using Jewish resources to advocate for progressive political values.\n\nThis is particularly true with the term \"social justice\", where the Jewish concept of social justice is quite different than the progressive political use of the term social justice.  That sometimes means realignment with groups like Black Lives Matter, that use the language of social justice to create actions and policies that can directly hurt Jewish people and Jewish communities.\n\nIt's important to us that in advocating for social justice, that it's consistent with the traditional Jewish concept, rather than the progressive political sense."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 43,
-        "comment": "JDS must be proudly and unapologetically Jewish, Zionist, and Hebraist. It must not muddle fashionable and trendy political movements with Judaism and Jewish practice. Teach Hebrew not \"Hebrew words and phrases\" which is an easy copout and was mentioned as an option in the survey. Teach Kashrut (whether kids keep kosher or not) and not \"ethical eating practices\" (which has no definition and which was unethically and inexcusably mixed in with the same question!) Judaism has no clear position on environmentalism, despite a couple of decades of fashionable teaching. Keep core Judaism and Zionism and history, not trendy political activism as Judaism; stay focused."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 44,
-        "comment": "It's important that JDS teach Jewish values, history, and provide each student with a strong religious and academic education that gives them confidence and pride in being Jewish and as part of a larger community. JDS students should be prepared to be successful in their next steps in high school and beyond. JDS should clearly be pro-Israel. JDS should also promote the value of living in a democracy and teach pride for the freedoms we have living in the USA. JDS should make sure their curriculum and values do not promote an activism that leans in a progressive left or far right direction.  Jewish values, not a political party should be the guide.  Learning about the nature of the debate is useful, but aligning with a particular side does not promote the critical thinking skills that we should encourage at a Jewish school."
-      },
-      {
-        "organization": "Jewish Day School of Seattl",
-        "row": 45,
-        "comment": "While I understand that this survey is focused on the aspect of being Jewish at JDS, I am wondering when and where we get to make the bridge to academics and how these areas overlap. There is an academic/schooling/learning aspect that I don't think gets addressed or discussed enough for a school."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 13,
-        "comment": "Need a place for lonely seniors\nHave opportunities for singles to meet"
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 17,
-        "comment": "Not a fan of the survey. It basically just was a list of buzzwords that had little to do with actual programs."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 18,
-        "comment": "navigating Jewish identity vs Jewish religion"
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 19,
-        "comment": "Build and enlarge the facilities for more activities"
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 20,
-        "comment": "The JCC should make a greater effort to include the Sephardic community when planning events. The Jewish community in Toronto is very diverse and there is so much we can learn from each other."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 21,
-        "comment": "Hello, maybe you can detect from the survey responses that I am not Jewish.  My involvement at the JCC is the gym and fitness classes which are wonderful.  Thank you for making me welcomed ."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 22,
-        "comment": "It would be great if the JCC could offer evening classes for Adults to learn conversational Hebrew, or other enriching opportunities."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 24,
-        "comment": "na"
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 25,
-        "comment": "i suggest you add jewish and isreali feeling and culture in the fitness experience. This can be done by playing hebrew songs, doing events related to israel etc. This had been done in the past at SRC and now feels very watered down. I suggest you make it feel more like a Jewish community center gym rather than a generic gym. In the past we had events like ride to israel, as a example where we had a ride in the spin studio to contemporary Israeli music. This is just one example. Members i have heard say the last 2 years that the JCC is a refuge from the outside world. A more Jewish feel would add to that."
-      },
-      {
-        "organization": "Prosserman JCC & Schwartz Reism",
-        "row": 26,
-        "comment": "I’m not Jewish. I’m from the tribe of Ephram, Father Joseph’s second son."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 9,
-        "comment": "Jewish life and learning is geared mostly towards student learning, and is centered around reading texts in Hebrew and translating and discussing the meaning, as well as celebrating holidays, and singing Hebrew songs.  Native Hebrew classes provide the biggest cultural lens in upper Elementary school where students learn a lot about modern topics affecting Jews around the world. I feel there to be less of a felt influence on the historical and modern day social/cultural/political aspects of Judaism this year than in recent years. There are fewer opportunities for the community to join in on Jewish learning events led by students. I don't feel there are many Jewish learning opportunities for staff to take part in outside of 2x a year - at the end of the school year PD and beginning of the school year PD. I don't think there are any Jewish volunteering/leadership opportunities available to staff, or many for the general Wornick community outside of volunteering at events at the school. A couple years ago JS directors led a year of Jewish Joy that worked to bring love of Judaism into staff culture, and Roy Meron led meetings with staff members and parents to talk about the situation in Israel after the war started. There has also been an event with the community in memorial of Oct. 7th. There is the Hebrew Cafe, but it is optional and I don't know if anyone actually joins, and there are shabbat dinners with Hebrew staff happening 2x a year. Sometimes Judaism at Wornick (from a staff perspective) feels timid and designated to certain times because instead of taking a stance, or fully embracing difference, sometimes it feels it is easier to avoid it outside of the classroom or outside of an organized tefillah/simcha. Meaning Judaism's place at Wornick is within Jewish Studies and Hebrew classes, at a prayer service, a bar/mat mitzvah, Jewish/Israeli holiday or memorial ceremony. It is carefully contained."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 10,
-        "comment": "I’d like more representation as an American Jew. Our culture has become so Israeli-focused that I feel underrepresented and undervalued."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 11,
-        "comment": "It would be great to do Torah text study with Rashi's commentaries"
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 18,
-        "comment": "Thank you for asking. Based on my responses, I think I am much more interested in \"Jewish Values\", leadership, and community, and I am less concerned about some of the formal religious education, though that still matters."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 19,
-        "comment": "Everything is perfect. Wornick is a great and the best example of how the Jewish school in the modern world has to be. Wornick is much better than other Jewish schools in the area where we have been and seen. Thank you to the teachers, administration, community and Adam Eilat - who is a heart of this school! Go Rams!"
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 20,
-        "comment": "I noticed the questions were mostly about Jewish practices and culture, but less Jewish values. The most important thing I want for my kids is to be good people, good citizens of the world. This doesn't require them to know how to pray, or speak Hebrew, or defend Israel. I can celebrate the holidays and learn prayer in my congregation, but unfortunately I have yet to find another school that has any integrity when it comes to raising young adults into good people, and the leaders of tomorrow.\nYes, the education I am looking for is based on Jewish ideas, learnings, and culture, but for me it's not the goal, it's just the path. I think my answers reflect that, but might be difficult to interpret that way."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 21,
-        "comment": "I'd love for Hebrew to be more immersive and conversational. It feels like there is an effort tog et there and that is great. I think Worncik insitlls a love for Israel in both students and families which was a bonus for me to be able to appreciate and love Israel along with my children."
-      },
-      {
-        "organization": "Ronald C. Wornick Jewish Da",
-        "row": 22,
-        "comment": "Characters of Jewish congregations in the US, including the main differences between: (1) the main Jewish factions - Orthodox, Conservative and Reform, and (2) between the diaspora jewry and the jews in Israel"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 9,
-        "comment": "Our driving Jewish value is Chachnasat orchim, hospitality."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 10,
-        "comment": "Thank you!"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 14,
-        "comment": "Would be great to offer a beginning Hebrew class"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 15,
-        "comment": "The Shames JCC serves a large population of non-Jewish community members as well as those who are Jewish.  Recognizing this, I have observed that many of the organization's programs and events are directly related to Jewish culture, history, values, rituals, and observances, and I hope those reading these surveys and drawing conclusions will also read, for example, a handful or sampling of the Shames JCC's weekly (sometimes more than weekly) e-mail newsletters, which provide valuable insight into how our programming relates to Judaism in many diverse ways. The Shames JCC has strong partnerships with most of the area synagogues, which we treasure.  Still--it is a balancing act between offering strong Jewish-related programming, not competing with or trying to be a synagogue, and also embracing the many non-Jewish members and participants we serve."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 16,
-        "comment": "The Rabbi's personality has more to do with my participating in Jewish activities than the subject. I wouldn't attend if I didn't like what6 he has to say and the way that he presents ideas."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 17,
-        "comment": "Group travel to Israel or other locations with Jewish history/significance."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 18,
-        "comment": "I'd love to see us lean in more on Jewish issues, especially Israel.  I don't like the idea of hosting \"debates\", but I love panel discussions where different perspectives are presented and discussed respectfully.  We need more of that in our community so people can feel more comfortable having the conversations they consider difficult.  And I'd love to do something for Yom Ha'atzmaut and perhaps be part of a Shames JCC contingent that goes to the Israel parade in the spring."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 22,
-        "comment": "As an engaged member of Woodlands Commuity Temple and a rabbi, I do not depend on the JCC for my Jewish learning and spiritual development. I enjoy attending lectures on Israel and cultural programs."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 23,
-        "comment": "JCC shoulod be a welcoming place to non-Jews and enable them to get some questions answered."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 24,
-        "comment": "I think it’s important to make the distinction between the JCC as a social  community and a Temple. Personally I believe that aTemple should focus on many of the activities mentioned in this survey and not  the JCC"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 25,
-        "comment": "I enjoyed the Chavura’s high holiday services at the JCC and would like to see it again in the future."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 26,
-        "comment": "Seems like all angles were covered. I am so impressed with the efforts the JCC is making in this direction through the guidance of our Rabbi Ron Symons. Very excited about connecting to my Jewish routs through the JCC! \nShalom,\nHarley Dembert"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 27,
-        "comment": "Honestly, I only joined because of the gym."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 28,
-        "comment": "No, thank you.  And, thank you for providing the Jewish programs that you do!"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 29,
-        "comment": "This survey is quite comprehensive.  As an active member of a synagogue, I address many of these needs in my synagogue community.  I appreciate that the JCC has so many offerings to deepen and strengthen our connection to Judaism, yet I hope that people will continue to be synagogue members.  Thank you."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 30,
-        "comment": "Since Rabbi Ron is a reform Rabbi and I go to a conservative shul, I think the J can fill an important role in my spiritual journey. I think the J is a more open environment to be critical of the Israeli government, for example."
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 31,
-        "comment": "no"
-      },
-      {
-        "organization": "Shames JCC on the Hudson",
-        "row": 32,
-        "comment": "I think the Shames JCC is excellent, and has a good balance of programs. Thank you for your efforts."
-      },
-      {
-        "organization": "Temple Beth Israel Religiou",
-        "row": 12,
-        "comment": "I responded with a view to the temple as a whole. I don’t know what occurs within the children’s religious school. A small number of members making strong efforts, but many disengaged members."
-      },
-      {
-        "organization": "Temple Beth Israel Religiou",
-        "row": 13,
-        "comment": "I don't think the board is up to date on the day-to-day/week-to-week of the Religious School. It would be nice to know where the curriculum comes from. How the year is laid out, and what subject matter is important to the grade levels. It would be nice if the board were more in the loop about it. When we are in the community and when asked about what is being taught we would be able to give some answer."
-      },
-      {
-        "organization": "Temple Beth Israel Religiou",
-        "row": 17,
-        "comment": "A more balanced approach to Israel.  As Jews we can value Israel but also acknowledge the wrongs.  The Temple leadership (not the rabbi but others especially in the religious school) has been very biased about Israel and have not in my experience presented the Palestinian perspective and have not acknowledged some of the atrocities the Israeli government has committed. I want my community to understand that we as Jews can respect Israel and want it to exist while also being unhappy with how the Israeli government is behaving."
-      },
-      {
-        "organization": "Temple Beth Israel Religiou",
-        "row": 18,
-        "comment": "No"
-      }
-    ];
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 12,
+    "comment": "Conversational Hebrew, Yiddish, Ladino\nFull inclusion of sexual minorities"
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 16,
+    "comment": "Making it a space where younger people and family want to go to. It’s hard to go to shul when the political aspect is right in your face. I don’t come to shul for politics, and that is how it has felt for the last year. \n\n\nI also feel like there is a huge opportunity to have mentorship programs for working professionals. Chabad does it well with their young professional network or whatever it is called but they make it fun for people. It would be nice to have something like that at BEBY. \n\n\nGluten free options for kiddish."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 17,
+    "comment": "Belonging to a TRADITIONAL synagogue is 4 for me.  I do participate in events, but I live almost 30 minutes away, so there is a limit.  Plus there are competing events.  I come to Beth Emeth to exercise.  I already study Hebrew 3 times a week.  I try to go to Israel annually."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 18,
+    "comment": "improved welcoming of new shul participants among the members ....for example, a friendly and interactive greeter/s from the entry into the building to the entry in the sanctuaries as the model of Chabad or Aish shuls....someone at the door to make sure they have a siddur, chumash and know where to sit ....improved welcoming of strangers."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 19,
+    "comment": "In Toronto, we live in a community with many Jewish organizations. Beth Emeth shouldn't duplicate the efforts of advocacy groups or fundraising groups.  The synagogue staff doesn't have the expertise or the capacity. It should be a place of worship and study, pastoral care and community-building. It should seek to better the lives of its neighbours - Jewish and non-Jewish-- through meaningful and consistent tzedaka projects."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 20,
+    "comment": "A more efficient and proficient service always done in no more than 45 minutes on weekday mornings and no more than 2 1/2 hours on Shabbat ."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 21,
+    "comment": "Better kiddushes and the like as a way to incentivize more people to come to shul.  More free programs as a way to engage more people, especially the younger set."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 22,
+    "comment": "Ways to built friendships between members.\nCurrently difficult to talk to and make acquaintances with members you do not already know.\nIn Orthodox synagogues there is a community that brings members in.  It is not perfect but would be very helpful if \nwe could find a way to make meeting each other easier and bring the community closer."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 23,
+    "comment": "Not that I can think of at the moment."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 24,
+    "comment": "Respecting and caring for our elderly."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 25,
+    "comment": "no"
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 26,
+    "comment": "Please insure we stay a conservative synagogue."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 27,
+    "comment": "How we can engage younger people to attend synagogue and make it more welcoming"
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 28,
+    "comment": "Teach us How to defend ourselves i.e.gun training, Israeli Karate, etc."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 29,
+    "comment": "My children attend hebrew day school. Most of these questions are not relevant to them as they get the insight from school."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 30,
+    "comment": "Yes I would like our Rabbi to express his sermons with contemporary political view points when discussing the Torah and specific events challenging jews"
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 31,
+    "comment": "Programs for seniors."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 32,
+    "comment": "Shorter services on Shabbat please"
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 33,
+    "comment": "The only other area perhaps needed was asking about attending online instead of in person. I think the video is great. Now I can go to shul without going to shul."
+  },
+  {
+    "organization": "Beth Emeth Synagogue",
+    "row": 34,
+    "comment": "encourage spouses or partners of members to attend (shabbat) services. i/we see many solo, mostly men, without their significant others.\nalso, the atmosphere in the synagogue is (almost) toxic. i/we feel like ousiders. there is rarely a nod or a gesture of \"shabbat shalom\" from long-time members. many cliques."
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 9,
+    "group": "Staff",
+    "comment": "Nope, I think one thing to keep in mind is how staff modle this for the campers."
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 10,
+    "group": "Staff",
+    "comment": "no"
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 18,
+    "group": "Community Member",
+    "comment": "Thank you for creating a warm and nurturing environment. Would love to see more Jewish practice and rituals included as part of the Jewish and Israeli identity at camp."
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 19,
+    "group": "Community Member",
+    "comment": "I want my daughter to understand the complexity of Israel but also its importance and that we are tied to our siblings there. I want her to be able to advocate for herself and understand the true meaning of Zionism and to be a proud progressive Zionist."
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 20,
+    "group": "Community Member",
+    "comment": "i prefer focus on community, social & environmental justice, & just plain fun to be a kid"
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 21,
+    "group": "Community Member",
+    "comment": "I would like to clarify my responses a little. When I responded \"little interest\", it was because my kids experience some of those concepts at school and in our community, and therefore I do not expect it from Galil."
+  },
+  {
+    "organization": "Camp Galil",
+    "row": 22,
+    "group": "Community Member",
+    "comment": "Teaching the campers about the Ethiopian Jewry ,Mizrahi and Sephardic experience \nHaving someone from those communities engage with the campers and staff \nMore representation of Jews of color \na strong sense of Zionism and what it means and why it’s so important"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 9,
+    "group": "Staff",
+    "comment": "It is nice to have a secular Jewish space to connect with other Jews without the pressure of being religious. There is no need to push Israel on children more than it is."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 10,
+    "group": "Staff",
+    "comment": "With the students I am not sure, but between staff Israel has sometimes been the elephant in the room, with tension coming up especially between older pro Zionist staff members and younger anti Zionist; part of this tension comes from the open way that people express their Zionist views and the lack of similar tolerance for people with anti Zionist views."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 11,
+    "group": "Staff",
+    "comment": "I do like them learn about mitzvah’s. They then give the money to a charity."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 12,
+    "group": "Staff",
+    "comment": "I would like to add that I work with the youngest campers at camp.   We expose our campers to Oneg, Taboot, and music.  We work on a Mitzvah project ( this year it was to support children who are hungry).  Our campers are too young to teach torah and Hebrew, but we do expose them to counselors and CIT's with ties to Israel.  We gently expose them to Hebrew words here and there.    There are little nuances of Jewish life spread out throughout the day, but we only engage in prayer before eating to say the Motzi.  Please consider the age of my campers when it comes to teaching about history and whatnot."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 13,
+    "group": "Staff",
+    "comment": "I really l8ked the they incorporate a mitzvah project and give the money to charity."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 14,
+    "group": "Staff",
+    "comment": "No"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 15,
+    "group": "Staff",
+    "comment": "Camp Grossman, for the most part, does not directly offer most facets of Jewish learning; Torah reading, Hebrew lessons, history lessons, etc. However, due to the diverse backgrounds of both the staff and campers and the intrinsic Jewish nature of the camp (signs with transliterations of Hebrew words, signs in Hebrew, communal prayer in Hebrew) campers do tend to receive at least a baseline of Jewish education and values."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 16,
+    "group": "Staff",
+    "comment": "no"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 17,
+    "group": "Staff",
+    "comment": "I appreciate Grossman's commitment to always improving their programming!"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 18,
+    "group": "Staff",
+    "comment": "Not enough Jewish happening at a Jewish camp. No more prayers after meals, less Hebrew incorporated."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 19,
+    "group": "Staff",
+    "comment": "I think that the Jewish programming and the “Jewish feeling” at camp has lessened over the past few years. As in other Jewish spaces I believe that issues around being supportive of Israel became complicated since Oct 7th and caused some friction at camp, and was never really dealt with."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 20,
+    "group": "Staff",
+    "comment": "Although Camp Grossman identifies as a Jewish camp, is basically a secular camp."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 24,
+    "group": "Board Member",
+    "comment": "I would like Camp Grossman to be more intentional about their Jewish Experiential Education."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 28,
+    "group": "Community Member",
+    "comment": "I am strongly opposed to the concept of prayer of discussion about God occurring in a camp setting."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 29,
+    "group": "Community Member",
+    "comment": "I want my kids to experience their Jewishness at Camp Grossman in a fun and educational way! \nAs public school students they have the WHOLE REST OF THEIR LIVES to encounter other cultures and backgrounds - summer is a special time to celebrate being Jewish. \nThey loved doing this last summer through learning about Jewish holidays, eating Jewish foods, celebrating Shabbat, singing Hebrew songs, and learning bits of Hebrew. And especially being around other Jewish children!\nI think staying away from politically charged topics is for the best, as it is bound to upset more people than it will please."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 30,
+    "group": "Community Member",
+    "comment": "I really liked how the campers learned certain traditional Jewish songs (e.g. \"Hevenu Shalom Aleichem\" & \"David Melech Yisrael\") while still being fun and totally accessible for my daughter's non-Jewish friend.\nThe Israel situation must be very challenging for the JCC to address right now. I value that Grossman has many Israeli families and I want them to feel safe and supported. I really value that the campers do mitzvot through volunteering projects. I would prefer something other than cards to IDF soldiers, as was the case two summers ago. I don't doubt that those people need support, but I think it would be valuable to a broader range of camp families if the aid went to civilians in need (Jewish, Israeli, or other)."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 31,
+    "group": "Community Member",
+    "comment": "I attended Camp Grossman 50 years ago (crazy that Josh was at the waterfront then, too!).  We used to have Israeli dance, culture and singing.  We sang the blessing before lunch everyday.  My son has attended Grossman the last 7 years.  He tells me that those things are now gone from his experience.  I love Grossman, and it was an integral part of me connecting to all things Jewish.  I hope that this survey means that there will be a return to some more Judaism and Israel lessons woven into the fabric of the camp experience."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 32,
+    "group": "Community Member",
+    "comment": "I completed this survey thinking about Camp Grossman as a summer experience.  My child goes to Hebrew School and gets a lot of things this survey asked about there; she goes to Camp Grossman for some of the things mentioned here but not others.  Camp Grossman is her happy place for summer play so I would not seek or suggest dramatic changes to the program.  If Camp Grossman is considering offering some kind of non-summer program to extend it's impact, I would be more interested in more of these items."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 33,
+    "group": "Community Member",
+    "comment": "I want my sons to learn tradition, prayer, halakha, and build their own connections to their Jewish identity with meaningful Jewish friendships."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 34,
+    "group": "Community Member",
+    "comment": "It would be nice to have an actual \"sleep away lite\" Jewish camp that only ran on 5-10 days.  Most other Jewish sleep away camps are 3-4 weeks which freaks my kids out--the length is a barrier.This would be very different from the current \"overnights\" at Grossman which my kids have experienced as noisy and chaotic.  Maybe do a pilot of these for older kids who attended at least 4 weeks of day camp in a given summer, then during week 9 they could have a 5-day overnight camp on or off-site? Anyway, I commend taking a look at more Jewish programming, which has really been missing from Grossman."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 35,
+    "group": "Community Member",
+    "comment": "Your survey didn’t work! Many of the pages didn’t list questions. Please correct and send it out again!"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 36,
+    "group": "Community Member",
+    "comment": "Some of these questions were age-dependent, in my opinion.  There are skills and values which I would find 4 for my 10-year-old daughter that may not be the same as those I hope she will get if she stays at Grossman for a couple of more years."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 37,
+    "group": "Community Member",
+    "comment": "I don't expect my kids to learn that much at camp. I would have filled this out differently if I were responding about religious school. I am mostly looking for my kids to have fun, be social and physically active, and to the extent that can be done in a way that strengthens their connection to Judaism and other Jews, that would be great."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 38,
+    "group": "Community Member",
+    "comment": "I hope your Israel programming is brought more up to date with what is going on in 2025.  I don't want my children to learn that Israel is a simple, one-sided story where the Jews are always right and allegiance to Israel (and its leaders) is always expected.  I don't want the Israeli military experience to be glorified as it was in my childhood. If issues related to Israel are brought up, I hope for nuance and focus on the right of all peoples to life free and safe lives."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 39,
+    "group": "Community Member",
+    "comment": "I would prefer that Camp Grossman keep doing what they always have been, which is to provide a safe, care-free and fun outdoor environment for Jewish children to \"just be\" for the summer. This survey focuses a lot on learning, which they do so much of during the school year. I am OK with some of the cultural activities if they are mixed with fun, community and inclusion, but I am not in favor of teaching them Hebrew, learning about biblical texts, geo-politics related to Israel or anything of that nature. If you go in that direction, you will lose our family in future summers."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 40,
+    "group": "Community Member",
+    "comment": "Going to public school and participating in sports and activities (other than once a week Hebrew school) where most of the other children are not Jewish, it is important that they are learning about the importance of Jewish community, Jewish pride, Jewish connectivity in our present lives and through history (and of course being active and having fun). There is already such a focus on “other” cultures in their day to day, which is wonderful in many respects, that a focus on what makes being Jewish special and wonderful is needed."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 41,
+    "group": "Community Member",
+    "comment": "Mostly, I actually just want my kids to have a good summer camp experience and meet other kids.  I don't really need or want to to be all that 'Jew-y'"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 42,
+    "group": "Community Member",
+    "comment": "I just want to make it clear that we send our children to Camp Grossman to connect with nature in an environment where being Jewish is celebrated and not the minority. We want our children to be proud that they are Jewish. \n\nWe are not seeking to cultivate a relationship between our children and Israel. We believe we are among a growing group of parents who share these wishes. We do not wish for our children to receive one-sided education about Israel which erases, minimizes or distorts the experience of Palestinians. To the extent that Israel-Palestine is discussed and taught it should always include the stories, art, music, and perspectives of Palestinians. \n\nWe hope you take this feedback to heart and look at other public opinion polling demonstrating that this is not an extreme or outlying position."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 43,
+    "group": "Community Member",
+    "comment": "I would really love to see more connection between Jewish teachings and values regarding the outdoors and nature, since Grossman is an outdoor camp and uniquely positioned to bring that aspect of Jewish values to my daughter. I think Grossman is also uniquely positioned to teach about the Jewish values of human connection and friendship as well. Learning more modern Hebrew through out activities would also be a great way help connect with Israeli campers and instill a deeper connection with Israel."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 44,
+    "group": "Community Member",
+    "comment": "Would love to see more \"Jewish\" values  spoken of and practiced at Camp Grossman. Especially Kavod.  Thank you!"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 45,
+    "group": "Community Member",
+    "comment": "Thank you for this survey. I think it could be really helpful to talk about historical events like the Holocaust and other acts of anti-semitism with older kids. I'd prefer that my 8 year old is not introduced to this at camp, or if he is, that this happens with a lot of information and support going out to parents."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 46,
+    "group": "Community Member",
+    "comment": "I feel that there was a greater emphasis on Jewish learning in the younger units but less as you go up in the camp. It would be nice if there was a way for kids approaching their B'Mitzvah age could be supported during camp with developing meaningful connections to Judaism. With children in an interfaith home and who attend public school, we rely on camp to provide them a meaningful connection to their Jewish identity and to a Jewish community outside of our family."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 47,
+    "group": "Community Member",
+    "comment": "Anything that can be done to help my children to \"feel\" Jewish would be very helpful.  Thank you"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 48,
+    "group": "Community Member",
+    "comment": "If these things are really important to Grossman, they need to train staff. My children know the Shabbat prayers and the counselors did not. The staff does not need to be fluent Jewish ritual participants, but none of the things covered in this survey happen without knowledgeable staff. Why isn’t there a rabbi at grossman every summer?"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 49,
+    "group": "Community Member",
+    "comment": "My kids aren't Jewish.  We just want them to be well rounded and respectful of all people regardless of their religion. We want them to have fun and learning about other cultures is nice and we welcome the experience but don't require it"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 50,
+    "group": "Community Member",
+    "comment": "I love Camp Grossman for the community- and confidence-building and the camp's connection to nature. Many of the other elements of Jewish life highlighted here are 4 to our family - but things that the kids are learning via Hebrew school/religious school."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 51,
+    "group": "Community Member",
+    "comment": "We have a robust Jewish home life, I am not looking to camp for religious support.  My child is Black.  I am looking for a space for him to be comfortable as a Black Jew in a community with other Jews, to be able to relax and have fun.  And if there is some Israeli/Hebrew language cultural exposure that's good too."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 52,
+    "group": "Community Member",
+    "comment": "Our family is interfaith and divorced, with two households. I am completing this survey as the non-Jewish parent. I recognize that my children’s other parent may answer these questions differently, as they and their extended family identify as Jewish.\n\nI want to name that I am navigating what it feels like to be “the other” parent in Jewish spaces. I often do not feel fully welcomed, and I am deeply concerned about being alienated from my children—something that has already begun to happen.\n\nThis context informs how I answered this survey, particularly my emphasis on the importance of diverse perspectives. It is critically important to me that any Jewish communities my children engage with are genuinely inclusive—not only with respect to race, LGBTQ+ identity, gender identity, and socioeconomic background, but also of non-Jewish faiths and secular traditions.\n\nI am actively pushing back against language such as “we are the only Jewish people in [this parent’s] house,” (which is something my children actually said a few weeks ago) as it reinforces division rather than connection. My answers reflect a deep concern for my children’s sense of belonging, their relationships across both households, and the need for communities that support families like ours with care and nuance."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 53,
+    "group": "Community Member",
+    "comment": "Opportunity for the staff to engage in Jewish diversity conversations and support staff thru training to support campers expression of Jewish and non Jewish identities."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 54,
+    "group": "Community Member",
+    "comment": "Get rid of the shuk! I don't know why you would want campers bringing cash to camp. Talk about kids focuses on material items.\n\nFocus on being a positive, camp experience."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 55,
+    "group": "Community Member",
+    "comment": "I appreciate you sending out this survey and engaging in the work of M². I think many of these pieces are 4 to a holistic Jewish life for a family. Whether Grossman Camp is the place to do certain pieces is challenging; it is hard to answer  because each family may or may not have access to other resources that could inform many of these areas in addition to Grossman. I believe that Grossman should definitely elevate their Jewish content via basic rituals, art, nature traditions, Hebrew, Shabbat, but what a camp is responsible for versus a synagogue, day school, etc is an interesting question. I would be curious if the Foundation for Jewish Camps has a statement about what is the role of camps in building Jewish life and identity in relation to other organizations."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 56,
+    "group": "Community Member",
+    "comment": "The survey prompt question is extremely unclear. Are you asking what has been meaningful to my child in his past 7 summers at camp, or what I wish camp could be? I know this camp is very Judaism-lite. I would love for it to be more Judaism-rich, so I answered the survey in terms of my hopes for the future. I wish camp did less about connection to Israel these days given how divisive it is in the wide group of attendees at this camp. I also wish that camp didn't teach about Jewish holidays that don't occur in the summer, or Torah texts from Genesis and Exodus - those are covered well in supplemental Hebrew school during the year. All the other areas of Judaism that this survey demarcated are more important to me than light lessons about redundant topics like these."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 57,
+    "group": "Community Member",
+    "comment": "What happened to the orthodox community.  Needs to re do"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 58,
+    "group": "Community Member",
+    "comment": "We are a secular Jewish family and value what camp Grossman teaches our kids about Judaism. We hope for an inclusive approach that supports critical thinking especially as Judaism relates to Israel."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 59,
+    "group": "Community Member",
+    "comment": "All of these questions sound very serious.  We send our kids to Grossman primarily to have fun.  We choose Grossman over other fun camps because of the ability for the kids to meet other Jewish kids, \"do\" Shabbat, and learn a few Jewish things.  I don't want summer camp for elementary school kids to become a serious place where politics and history are the primary focus.  And I certainly don't want Israeli politics to create a challenging environment.  I don't think these things should be totally excluded, but they should be optional and of course, age appropriate."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 60,
+    "group": "Community Member",
+    "comment": "Having a safe space to learn about, practice, and participate in the ways in which Judaism respects and affirms neurodivergence and gender identity."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 61,
+    "group": "Community Member",
+    "comment": "I love that Camp Grossman offers an outdoor experience focused on building community. I love the Jewish foundation and the fact the kids are in nature and off screens. I don't need the Jewish component to be too prominent beyond community building and just the fact that the culture of the camp and the \"infrastructure\" are Jewish are good for us. We rely on Sunday/Hebrew school and our synagogue for the more overtly religious aspects. I also prefer that there not be a strong focus on Israel since we are Americans and I prefer that Grossman help cultivate a positive Jewish identify within a strong Jewish community and I don't think this should be politicized."
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 62,
+    "group": "Community Member",
+    "comment": "I feel that part of the reason we send our child to a jewish day camp is to help her connect to her heritage and roots, including Israel, and to build relationships with other jewish children, given there are not many opportunities for her in our town. Other than our family, Grossman is her main connection to the jewish religion and culture, and we value what she gains from attending.  I also recognize that she is in summer camp, and she  should be just having fun outside with friends, with these other parts of jewish identity woven into the fabric of the activities and curriculum, not dominate it  or change the experience of a traditional summer camp. :) Thanks!"
+  },
+  {
+    "organization": "Camp Grossman",
+    "row": 63,
+    "group": "Community Member",
+    "comment": "Jewish music/singing, and Jewish art.  But most important is love for Israel, understanding the history of Israel, understanding current antisemitism and how to address it, connecting with Israelis, communing with nature and being kind to animals, understanding Jewish values of B'Tzelem Elohim/ respecting others/ standing up for others/ helping others/ welcoming the stranger, and connecting with Jewish peers."
+  },
+  {
+    "organization": "Camp Livingston, Inc.",
+    "row": 13,
+    "group": "Board Member",
+    "comment": "With regards to answering these questions: there are two ways to look at this. From a board-centric position and from a camp-wide view. What camp offers \"clients' is not necessarily what is offered to board members or perhaps staff. That said, CL most certainly support youthJewish growth and identity. CL is an integral part of the regional Jewish community and I am proud to be part of the organization as a active board member. In addition, in my opinion, CL continues to grow and face challenges head on."
+  },
+  {
+    "organization": "Camp Livingston, Inc.",
+    "row": 17,
+    "group": "Community Member",
+    "comment": "My overall thought is that sleepaway camp should be a place for our children to bond with their Jewish identity and others who share that, not necessarily make it a place to educate young Jews on complex world issues. I think that is better handled at home and camp should be more of an escape."
+  },
+  {
+    "organization": "Camp Livingston, Inc.",
+    "row": 18,
+    "group": "Community Member",
+    "comment": "I am hoping and praying every day that Gesher returns to Israel this summer. It is so important to me for my children to experience this with their peers and concecrate their love and support of Israel. Its time. I feel safe and secure that Livingston will ensure the safety of my child on this amazing experience. Please, please, let them go!"
+  },
+  {
+    "organization": "Camp Livingston, Inc.",
+    "row": 19,
+    "group": "Community Member",
+    "comment": "keep up the good work!"
+  },
+  {
+    "organization": "Camp Livingston, Inc.",
+    "row": 20,
+    "group": "Community Member",
+    "comment": "This survey used the phrase \"focus on\", so here are my comments.  I send my children to Camp Livingston to enjoy the summer to be in a jewish environment that they are not a part of during the school year.  I do not feel Camp Livingston should become another social action outlet, another hebrew school, or another place for them to be taught or indoctrinated.  It should be a fun summer for them to live with other jewish children who they may not meet during the school year, to meet new friends, and to see old friends.  We belong to a synagogue and my children attend hebrew school so they do not need three or more weeks of that.  They need recreation, to be outside, to relax, and to meet new jewish friends.  They do not need for their summer camp to be another indoctrination tool or another synagogue or \"club\" for some cause.  They need to be in an environment where they have fun and recreate in a jewish environment and to be with other jewish children.  Have the jewish prayers, a Shabbos morning here and there to remind them they are jewish and sing some hebrew songs and blessings.  Let them be kids over the summer."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 9,
+    "group": "Staff",
+    "comment": "Love the joyful Judaism at Camp Zeke"
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 10,
+    "group": "Staff",
+    "comment": "I’m sorry if my responses suggested that Jewish culture at Camp Zeke is very limited. I may be mistaken, as I’m not familiar with everything that takes place at the camp. I also understand that it’s not possible to include everything within a camp setting."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 11,
+    "group": "Staff",
+    "comment": "Camp Zeke is a camp whose focus on kindness is admirable and shines through in all daily activities. The Jewish piece is a challenge, but this survey is a great way to begin enhancing the overall Jewish experience."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 12,
+    "group": "Staff",
+    "comment": "Camp Zeke celebrates six (one for each week) core Jewish values that shape how we interact with each other at camp and then in the world beyond camp.  These values are lived through how camp runs.  \nOne of the challenges our camp faces is that much of our staff is not Jewish, which presents a wonderful opportunity for a diverse camp community, but also creates a unique challenge with building Jewish culture as there are few Jewishly knowledgeable staff to implement the curriculum and programs on a deeper level."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 20,
+    "group": "Community Member",
+    "comment": "Would love a way for our kid to stay in touch with the Camp Zeke community during the off-season (aka the school year).  If that was structured Jewish-themed programming, that would be fine, but it doesn't have to be, especially in the beginning.  The more enticing it can be (she is 10yo), the more likely she will want to participate, which is the most important thing.  We've bumped into some issues with Hebrew school, and I'd hate for anything from Camp Zeke to fall into the same bucket."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 21,
+    "group": "Community Member",
+    "comment": "No thank you"
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 22,
+    "group": "Community Member",
+    "comment": "Maybe there can be a \"buddy\" program with the Israeli campers and the American campers. Importance of Shabbat and how one day a week we can put down our phones/ electronics and really be present. If God could rest, then so can we!"
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 23,
+    "group": "Community Member",
+    "comment": "Thank you for asking these questions."
+  },
+  {
+    "organization": "Camp Zeke",
+    "row": 24,
+    "group": "Community Member",
+    "comment": "There is nuance to Israeli history and politics that American Jewish spaces often ignore in favor of \"supporting Israel no matter what). Teaching and discussing \"Israel no matter what\" is not ok to us. Even the Israeli government can do bad things, as any government can, and it's important we teach our child that because so many of our community spaces do not."
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 9,
+    "group": "Staff",
+    "comment": "No, but it is important to note I have not been with the organization very long at all, thusly responses should be reviewed with a grain of salt."
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 17,
+    "group": "Community Member",
+    "comment": "I was disappointed that CCM didn't encourage or create a field trip around the recent visit of Omer Shem Tov. The seniors in particular should have been brought to that event but instead it conflicted with CCM."
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 18,
+    "group": "Community Member",
+    "comment": "Please teach our teens about antizionism, and how to resist. See e.g. maazaction.org for a growing body of material."
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 19,
+    "group": "Community Member",
+    "comment": "Not that I can think of"
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 20,
+    "group": "Community Member",
+    "comment": "I'd like the focus to be on making connections with other Jewish students, and post 10/7 learning advocacy skills, and understanding that in today's climate, groups that historically have been supportive of the Jews are less so today, while groups that have not historically supported Jews are now strongly supporting them. For example, look at the giant increase of Jewish students to southern universities, and less to North-Eastern schools.  For example, i read that Hillel at Univ of Alabama (and one does not think of Jews in Alabama) now has 1,000 active students, where a few years it was about 250. \nAnd not being afraid to discuss controversial topics like Jews having to meet in secret at the DNC: https://www.jpost.com/diaspora/antisemitism/article-815794"
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 21,
+    "group": "Community Member",
+    "comment": "Make it fun!  As an optional program, focus on joy over ritual.  We'll handle the spiritual and ritual as a family.  Make it fun and inclusive or the kids will choose to spend time elsewhere.  THEN the learning about Israel, history, torah, and language will be easier and more fulfilling."
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 22,
+    "group": "Community Member",
+    "comment": "Culture tradition community and history yes!\n\nNot religion...  and less money would be nice!"
+  },
+  {
+    "organization": "Contra Costa Midrasha",
+    "row": 23,
+    "group": "Community Member",
+    "comment": "Keep doing what you're doing. It's really great."
+  },
+  {
+    "organization": "JBO",
+    "row": 9,
+    "comment": "Ik vond het een hele nare lijst om in te vullen. Bij de Ivriet lessen zie ik veel knutseltjes langs komen. Ook didactisch en pedagogisch kan bij deze docenten een slag gemaakt worden. Jahadoet is voal veel van hetzelfde. Eind groep 8 wisten de leerlingen de aardvaders en moeders niet eens te noemen."
+  },
+  {
+    "organization": "JBO",
+    "row": 10,
+    "comment": "I would like for the young people we send off into the world to be aware of different opinions and faiths, for them to be able to navigate a world where people think and believe different things and be happy in their own skin, faith and life. For this education to work, it is important that our students interact with people of different faith, opinions and heritage and learn to work together with them."
+  },
+  {
+    "organization": "JBO",
+    "row": 11,
+    "comment": "Teach the students to be proud and happy Jews"
+  },
+  {
+    "organization": "JBO",
+    "row": 12,
+    "comment": "We should raise our pupils to be proud and self assured Jewish human beings who have sufficient knowledge of Jewish text, tradition and history, who have sufficient skills to participate in a Jewish environment with all of its praxis, ways and customs and who have a sense of belonging among the Jewish people through shared values. We should raise our pupils to be motivated to pursue a Jewish lifestyle. They should give Judaism a prominent place in their home, be an active part of their Jewish community and able to connect to Jews worldwide through a shared language and country. Our alumni should know both Torah and science as they complement eachother. Our alumni should always know that they are part of a larger world with an array of people, communities, languages, religions and values, which should all be respected."
+  },
+  {
+    "organization": "JBO",
+    "row": 13,
+    "comment": "I realize that it is very difficult to please everyone. We are a Modern Orthodox Jewish school, but most students are not orthodox at all. For some children there is also resistance to orthodoxy from home, yet parents choose Maimonides for socially desirable reasons. This makes it difficult to keep everyone satisfied. Still, I do feel that there is currently a positive and clearly visible return of Yiddishkeit at the school."
+  },
+  {
+    "organization": "JBO",
+    "row": 17,
+    "comment": "I believe level of hebrew taught is too low. No bagrut, or similar 'exit' level is offered."
+  },
+  {
+    "organization": "JBO",
+    "row": 18,
+    "comment": "Goed leren discusieren en zien dat verschillende perspectieven naast elkaar kunnen bestaan"
+  },
+  {
+    "organization": "JBO",
+    "row": 22,
+    "comment": "I believe the school should be giving the children a Good foundation to learn about the religion, Israel and our community. This should be done whether or not the people who attend the school actually practice at home. In the uk, most Jewish schools follow the program of the United synagogues so the children get a good basis. It should be a modern orthodox school that gives the kids a good foundation for their Jewish lives."
+  },
+  {
+    "organization": "JBO",
+    "row": 23,
+    "comment": "Learning more about the mystical/spiritual side of Judaism. To understand the framework of the universe and our part in it."
+  },
+  {
+    "organization": "JBO",
+    "row": 24,
+    "comment": "Give place also to Jewish secular culture with an emphasis on Jewish life in Europe and in Netherlands. Build local Jewish community."
+  },
+  {
+    "organization": "JBO",
+    "row": 25,
+    "comment": "Ik vind sommige vragen misleidend. Als leren over de geschiedenis van de staat Israël betekent dat je het altijd eens bent met het huidige regime, dan is het niet de geschiedenis van Israël, maar een standpunt. Een krachtig pleidooi voor de staat Israël kan ook betekenen dat je kritisch bent op de gebeurtenissen.\nMeer kritisch denken is vereist."
+  },
+  {
+    "organization": "JBO",
+    "row": 26,
+    "comment": "Being open to diverse influences, helping children grow into good human beings, and avoiding a narrowly focused, exclusively Jewish perspective. Encouraging them to engage actively in Dutch society, to learn from other cultures, and to understand that being a good Jew is part of being a good person—without making distinctions based on ethnicity, gender, or religious affiliation."
+  },
+  {
+    "organization": "JBO",
+    "row": 27,
+    "comment": "Our kids should be proud and confident jews!"
+  },
+  {
+    "organization": "JBO",
+    "row": 28,
+    "comment": "It would be nice to focus on the things that make Judaism beautiful and positive instead of always focussing on everything that is not allowed or that is different. It gives Judaism a negative perspective this way. Also I would like my children to know more about the outside world. You can create a strong and proud Jewish identity, while they also learn about other cultures."
+  },
+  {
+    "organization": "JBO",
+    "row": 29,
+    "comment": "We’re really happy with Rosj Pina, what a warm place and also I would say healing place for our daughters after what they experienced in other schools before. The best way to heal is to create positive patterns, and the classmates and other moms have really also helped in that process. At the same time, connecting with Maimonides has been harder. One of the main teachers does not respond to all emails (like: asking to be able to leave on time for Shabbat on Fridays because we really don’t want to be forced to break Shabbat because we live further away). Also some teachers seem to be less familiar into how to deal with students with special needs like ADHD. For one subject our daughter gets extra time, for another not. My daughter really likes the Jewish studies subject and the Rabbi, but it would be great if a Dutch teacher also takes our daughter serious when she says she cannot stay overtime on Fridays because Shabbat and Halacha are so important to us. It feels a bit strange to have to defend our Jewish identity and Halacha on a Jewish school. Also, some things are given up which I understand compared to primary school - there is no communal time to do birkat hamazon together because the students have more freedom. At the same time, they are or are almost bat or bar mitswa age and doing tefilah together would be really great, or hanging Asher Yatzar next to the toilets, etc."
+  },
+  {
+    "organization": "JBO",
+    "row": 30,
+    "comment": "I would love to see stronger alignment between Rosh Pina and Maimo.\nWhile RP invests significantly in Jewish content and practice, I would have expected this foundation to continue growing in depth and complexity once students transition to Maimo. Unfortunately, I feel the opposite is happening.\n\nSome basic elements—such as dress code, kippa norms, participation in morning prayers, and engagement in Rosh Chodesh or High Holiday activities—seem to have been dropped entirely. I’m not suggesting that everything must happen daily, but I do believe that certain symbols and practices are important to maintain.\n\nFor example:\n\nKippa as a consistent symbol of Jewish identity (especially since most children come from Rosh Pina and are already accustomed to it).\n\nMorning prayers once a month for Rosh Chodesh—a manageable rhythm that still builds continuity.\n\nMore in-depth or philosophical Jewish studies, which could challenge the students, spark curiosity, and strengthen both their knowledge and connection.\n\nI believe these elements would help create a smoother educational progression, reinforce the values and habits students have already built at RP, and enrich their Jewish experience at Maimo."
+  },
+  {
+    "organization": "JBO",
+    "row": 31,
+    "comment": "It might nog be a good idea to have kerstmis (christmas) books laying around in school."
+  },
+  {
+    "organization": "JBO",
+    "row": 32,
+    "comment": "Answering the questions as parents with kids in primary school is very different from having kids in high school."
+  },
+  {
+    "organization": "JBO",
+    "row": 33,
+    "comment": "You were very thorough and reminded me of issues I haven't thought about in a long time! thank you"
+  },
+  {
+    "organization": "JBO",
+    "row": 34,
+    "comment": "Stick to the core, teach the actual Jewish religion instead of just talking about it endelessly. Teach chumash with Rashi, teach tenach, teach Mishna, teach Halacha, teach Tefila, teach Mitzvot. Give children actual Jewish knowledge and skills. Stop bringing up generations of Jewish people who don't actually know what they are talking about when they are talking about Judaism."
+  },
+  {
+    "organization": "JBO",
+    "row": 35,
+    "comment": "Judaism is the religion of empathy - Vehaavta Lereaha Kamoha - A central theme of Judaism that has constantly been degraded and forgotten.\nTeach empathy and compassion to our kids towards others, including toward those who are not Jewish."
+  },
+  {
+    "organization": "JBO",
+    "row": 36,
+    "comment": "Learning Hebrew and having good Jahadut teachers is 4e I suggest that all children turning 12 or 13 in the same year could have a collective bat/bar mitzvah at school, with parental support."
+  },
+  {
+    "organization": "JBO",
+    "row": 37,
+    "comment": "The difference Jewish backgrounds of the pupils should be taken more into account, especially when it comes to outside of school activities (no birthday parties on shabbos, always informing about kasrus etc)"
+  },
+  {
+    "organization": "JBO",
+    "row": 38,
+    "comment": "When I was a student at Maimonides myself I was one of the only members of the LJG and it shocked me that   there was so much \"bad talk\" and prejudice about our congregation. The one I loved so much. It made me feel inferior. In my Maimonides time I have learned a lot about the more orthodox ways to experiencing Judaism and I loved it. I am still grateful I have had this opportunity. I would love the students of this generation to be taught mutual understanding and respect towards all the ways to live a Jewish life, especially towards the LJG."
+  },
+  {
+    "organization": "JBO",
+    "row": 39,
+    "comment": "Bedankt voor je inspanningen"
+  },
+  {
+    "organization": "JBO",
+    "row": 40,
+    "comment": "Not an answer to the question, but as there is nog space for remarks, I jot them down here. \nThere is a difference between what you can learn in school and at home. About cooking, Jewish rituals, a big part of it is transferred at home (as well). So sometimes hard to answer. \nAlso it feels very America-focused, with terms as 'advocation for social justice'. It's hard to imagine what it would mean here in our community, with a total different infrastructure. \nSometimes the statement contained more then one issue. For example: Taking action to care for the environment in ways guided by Jewish values. - Yes for taking action to care for the environment. Though, regardless of Jewish values. If they can support it, great, if not we still should do it. \nAnother statement about diverse believe in God. It totally depends on who teaches it, how it will be perceived. I mean 5 diverse, with no agenda and open philosophical possibilities. That might be different from what school is able to offer with the teachers. - So the statements are answered from my perspective and it's hard to see if that matches with wat the makers of the survey have in mind."
+  },
+  {
+    "organization": "JBO",
+    "row": 41,
+    "comment": "Eventhough I consider many of these things 4, I don’t think it is realistic to expect JBO to play an active role in all these areas"
+  },
+  {
+    "organization": "JBO",
+    "row": 42,
+    "comment": "Integrate Jewish themes into the everyday school experience.\nCould choose a different theme each week and use that theme in all topics."
+  },
+  {
+    "organization": "JBO",
+    "row": 43,
+    "comment": "please stay clear in the direction, eep the school modern ortodox, without sneaking the liberal/reform streams that are confusing the children"
+  },
+  {
+    "organization": "JBO",
+    "row": 44,
+    "comment": "When i look at what i deem important, I thinkt the kids should start school at 3 am and finish at 1 am. So it is way too much to cover. Celebrate diversity between jews and non -jews. Make them have strong identities but not live secluded."
+  },
+  {
+    "organization": "JBO",
+    "row": 45,
+    "comment": "More in depth learning for groups 3 to 8 like the weekly parasha/ more tefilah in the mlrnkng/ preparation for bar and bas mitzva/ more in depth Hebrew classes in order they know basisc when entering highschool"
+  },
+  {
+    "organization": "JBO",
+    "row": 46,
+    "comment": "Learning Hebrew is 4\nThe connection with, and the history of israel is 4, as is knowledge of israel & Israeli society today.\nThe freedom to choose your own way of living a jewish life and respecting all choices of others. So not one religious perspective."
+  },
+  {
+    "organization": "JBO",
+    "row": 47,
+    "comment": "I think it is important that he learns that every one can live his (Jewish) life in his own way. There is no wrong or right. \nAnd I think it is important our son learns that much about the religion, culture and Israël that he feels himself very comfortable in the Jewish evironment. \nAnd because of 7 October it is important to learn to stay proud to be Jewish and proud about Israel."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 9,
+    "comment": "The JCC is about community. We are the “hub” for Jewish Connection!!!"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 10,
+    "comment": "Celebrating Jewish community contributions to broader central Ohio community and build understanding of assimilation and how many jews by upbringing have chosen to marry non-jews and create homes full of Judaic and Christian, ( even Islamic) and broader humanistic values and understand the historical relationships of Jews and their extended families of non-Jews to the homeland of Israel and living in exile as a \"chosen\" people."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 11,
+    "comment": "It occurs to me that I may simply be unaware of many of the programs that the JCC offers (if indeed there is a large offering of Jewish classes/resources that are commonly utilized).  From my point of view, the JCC does daycare, preschool, fitness related things, camp, afterschool, and a community program here and there.  The most consistent \"Jewish\" thing that I know of happenning is all of the stuff coming out of the theatre and cultural spaces (maybe because they are the most prominently displayed to me)."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 12,
+    "comment": "no"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 16,
+    "comment": "I think all of my answers change if I look at the responses through the perspective of Early Childhood.  In those instances for a lot of families JCC preschool is their only jewish education, where they learn about Shabbat about holidays, hebrew and jewish customs.   So I think that needs to be taken into account.  I thought about it from an adult perspective."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 17,
+    "comment": "The JCC of Greater Columbus provides the environment to encourage Jewish life ,and learning on \na daily basis.Enough said."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 18,
+    "comment": "JCC acts as a place for a community both Jewish and non-Jewish to come together on daily basis.  It's in a unique place as Jewish institution to do that on a daily basis.  It's in essence a marketing tool for the Jewish community in that respect, especially given the location of the one in Columbus."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 19,
+    "comment": "No, but some of the things that were asked are covered by other organizations in the community. I guess that's a discussion we could have as to whether the JCC should also (or in combination with others) offer things like Hebrew, Torah study, etc. \n\nWe do need to be careful not to spread ourselves to thin, but, perhaps, we could ask other organizations to do things at the JCC."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 20,
+    "comment": "Many of the items listed, historically have applied to synagogue connections. Trying to understand why the questions were included and if the J is looking to fill a void (for community members who are not connected to a synagogue)."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 24,
+    "comment": "Many of these questions I feel are more of the purpose of a synagogue, not the community rec center.  So while I feel that learning Jewish texts, as well as prayers are 5, it's more of the role of a Kollel or Synagogue to carry than the JCC.\nThe JCC needs to figure out how to recreate a JEWISH atmosphere.  When there are more people who are not Jewish utilizing this amazing facility than Jewish, we need to be introspective about the need that is being fulfilled for the Jewish community.  The farther we move from following Jewish law and tradition, the farther we fall from serving the long term needs of the Jewish community.\nThink of the word Haimish - start with the preschool - that's where most families begin their interaction.  There is a very warm environment - it just needs to be more spiritual.  Stop with the diversity talk and social justice survey questions - we are here to serve our Jewish community. Period!"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 25,
+    "comment": "No. I believe somethings belong in the home or synagogue and communal things belong at the J."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 26,
+    "comment": "Thanks for asking"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 27,
+    "comment": "I think that the JCC should be open to Jews of all religious practices. The specific religious practice should be left to synagogues. I don't feel that Israel should be the focus of Jewish life. Not all of us aspire to live in Israel and do not consider Israel to be the center of Jewish Diaspora life. We have a rich history across the world, this should be a focus of learning and cultural observance available to all Jews."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 28,
+    "comment": "We're frequently disappointed by the lack of unstructured opportunities for kids. For example: a bored adult can head to the JCC and work out or play. A bored kid can only use the track, the pool (when available), the basketball gym (when available) or the racketball courts (when available). We'd love to see the JZone opened up for free play for elementary aged kids!! This would increase the engagement of adults too because we could bring our elementary aged kids to the JCC with us while we worked out. Also, surely some of the exercise equipment could be made available to kids younger than 13."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 29,
+    "comment": "More programs like Avi Melamed's \"Inside the Middle East Institute!\" It's important to understand the politics of the Middle East as a whole."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 30,
+    "comment": "Love what Jewish life the JCC offers.  Would love conversational Hebrew lessons."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 31,
+    "comment": "Mainly maintaining a safe and Jewish Space.  I believe the JCC of Columbus has done a nice job.  Thank you"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 32,
+    "comment": "The majority of the learning opportunities mentioned, including both group and individual learning opportunities, are available through programming at local synagogues and with rabbis.  I view the JCC being a place to focus on being a gathering place to participate in social activities with other Jews."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 33,
+    "comment": "No.  But  I wanted to clarify that many of the items listed in this survey are fully addressed by my synagogue membership so I responded to this survey accordingly."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 34,
+    "comment": "Overall, Jewish life and learning Jewish values, language and culture is 5 to us, and is a non-negotiable for our family. It is both our religion and who are we / our identity. Learning all facets of Judaism, from food to language to music, is vital for a Jewish life, being embedded in the Jewish community, and knowledge is power. Without a strong Jewish foundation, it is hard to grow up and continue faith. Laying the groundwork from a young age is so essential. My husband and I both went to Jewish day school K-12 along with JCC (both but in different states), and we feel is it extremely imperative."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 35,
+    "comment": "Because Jews have different ways to observe traditions, the JCC needs to keep these their celebrations generic (for lack of a better term). The JCC is not a place of worship nor should members feel left out because of their own observances."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 36,
+    "comment": "The JCC should be a home to Jewish live and community.  To me, that means spirited activities that celebrate Judaism and Israel - Israel's Independence Day, Sukkot, Bar/Bat Mitzvahs - and meaningful moments for Jews - Rosh Hashanah, Yom Kippur.  There should be continual life and liveliness at the JCC embodied through the ECLC, Camps, and active sports (swimming, basketball, pickle ball, etc.).  The Columbus JCC should be a staunch, steadfast supporter of Israel.  The Columbus JCC should be a space that Columbus Jewry can convene together in community (big events that cross Jewish groups in the community, e.g. remembrance of October 7th)."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 37,
+    "comment": "In my view, the main goal/mission of the JCC is to build and support the Jewish Community in Columbus, full stop. It's not a religious or spiritual entity (which is for synagogues/temples), it's not a political space, it's not to support or defend Israel. It's definitely not a place to advocate for one's political views in Israeli politics (which itself is very divided). I support the JCC because I want a vibrant Jewish Community in Columbus and I want a physical space where Jews -- and friends of Jews -- feel welcome and can interact organically with each other through activities, arts, education, and sports, etc. Any programming that supports \"community making\" should be encouraged. Any activity that divides the community or does not enable this goal should be questioned.\n\nIf there is a secondary mission, it is as a health center to help support the health of the Jewish Community in Columbus. Being healthy and learning healthy habits is also an important part of being Jewish -- to respect life and our human body."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 38,
+    "comment": "I find it an ironic survey as I don't feel the JCC does a minute amount of what the questions are asking. There seems to be little programming or concern for the diversity of what many in this area value as the Jewish community and many of the issues presented in the survey. It seems to us that the focus on diversity is more about \"social justice,\" lgptq, racial issues and the like and far less about preserving actual Judaism. Honestly, I was confused by many questions as the dilution of holiday practices by the JCC like picking to close on day of a holiday and yet making the decision to dilute the historical Shabbat practices. In reality, the JCC is serving more about he entire community with a little Jewish stuff thrown in when it is important. You asked and those are our and many of our friends perceptions which is also why more and more our friends are going elsewhere."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 39,
+    "comment": "The JCC is an ideal place to meet other Jewish people of varying levels of observance.  Yet, it need not duplicate classes or religious services offered by local synagogues."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 40,
+    "comment": "How to access resources to raise a child who is a leader in the Jewish community. What options are there for what ages? Where can this be found? Help navigating this would be great."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 41,
+    "comment": "more focus on addressing the needs of older adults, not just programs for families and kids.  thanks for listening ."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 42,
+    "comment": "I value the inclusivity at the JCC."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 43,
+    "comment": "'- Interfaith marriages, couples and families. \n- groups to support those who have lost a spouse.\n- support for those who have survived significant illness either mental or physical."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 44,
+    "comment": "Judaism is much bigger than the modern state of Israel, and I wish there were more opportunities to participate in Jewish spaces without needing to connect everything back to that country. I want to raise my daughter Jewish, but not Zionist."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 45,
+    "comment": "Much of what the survey covered were things that I believe are religious and should be done in the synagogue not the JCC. The JCC is more about cultural Judaism not so much religion."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 46,
+    "comment": "I am not Jewish but am fully supportive of everything the JCC offers for both Jews and Gentiles. I am proud to belong here but most of my focus is on health and wellness."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 47,
+    "comment": "Great survey, thank you1"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 48,
+    "comment": "My family gets a lot of these types of offerings through our Orthodox synagogue involvement, so I also answered considering what I hope the JCC can bring to Jewish people who aren't as engaged in Jewish life (yet). Thank you."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 49,
+    "comment": "Many questions in this survey have to do with issues addressed by other institutions like synagogues, Jewish day schools, JewishColumbus, JFS.  Where it applies to preschool, age-appropriate lessons on religious and educational issues are necessary but, after that, the JCC shouldn't be trying to duplicate efforts better facilitated by other institutions.\n\nThe JCC should lean into programming that enable Jews to congregate as a community in a central location as often and for as long as possible. There must be programming for young people, after preschool age, other than basketball leagues and summer camp, that brings and keeps the JCC and Jewish programming a vital part of their lives."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 50,
+    "comment": "A lot of these questions pertain to things the synagogues should be doing.  However the Center has the ability to draw from all parts of the Jewish community, which the synagogues don't seem to be able to do.  There should be more events where people can interact with each other, also more discussion of our role and responsibility to America and Israel.  These discussions should not be filtered and limited unless very extreme."
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 51,
+    "comment": "cleanliness \nget rid of carpets mop and sanitize daily multiple times daily the JCC is filthy. Dirtiest i’ve been to in the country"
+  },
+  {
+    "organization": "JCC of Greater Columbus",
+    "row": 52,
+    "comment": "Find a way to connect the JCC to people living all over Greater Columbus and not necessarily just in Bexley."
+  },
+  {
+    "organization": "JCDS",
+    "row": 9,
+    "comment": "Pluralism"
+  },
+  {
+    "organization": "JCDS",
+    "row": 10,
+    "comment": "No."
+  },
+  {
+    "organization": "JCDS",
+    "row": 12,
+    "comment": "The survey does touch upon this to a small degree, but our community is in serious need of conversations around Israel that include a true multitude of perspectives on Israel, including troubled/skeptical/negative ones. The level of nuance we apply to our discussions of Israel is minimal at best, and while it is generally understood why that is the case (our school is 1/3rd Israeli), I still believe we are setting up our students for trouble down the road by not exposing them to the true breadth of opinions and perspectives on Israel and/or categorically defining criticism of Israel as antisemitic."
+  },
+  {
+    "organization": "JCDS",
+    "row": 13,
+    "comment": "It was nearly impossible for me to accurately answer these questions as a 2nd grade general studies teacher. It makes it seem like my role in the school is of no value because I do not teach Jewish texts or culture. I have serious questions about the data collected here. I am sitting with math teachers who also have no idea how to answer any of these questions."
+  },
+  {
+    "organization": "JCDS",
+    "row": 14,
+    "comment": "Thank you!"
+  },
+  {
+    "organization": "JCDS",
+    "row": 15,
+    "comment": "We are school that prioritizes joyful Jewish learning, living.  We are K-8 so the affective education is primary.  As our students reach the 8th grade more of the content related to Israel, Zionism, Holocaust history, Jewish history are emphasized. Israel education in the K-7 grades is 4 but very much a work in progress."
+  },
+  {
+    "organization": "JCDS",
+    "row": 22,
+    "comment": "The world is so polarizing right now. I want my children to learn about how to engage in conversations with people of all backgrounds and ideas even if they are different from theirs. I want them to learn Jewish history and the connection to Israel and the Jewish people. There was so much focus on this when I was a kid, and I find many adults who grew up in that environment are using some of these learnings as a weapon on social media. I want them to be able to hold many truths at the same time and stay grounded in empathy. This is not easy, and it's a skill I want them to learn even if it feels hard and is uncomfortable at times."
+  },
+  {
+    "organization": "JCDS",
+    "row": 23,
+    "comment": "Joy. We value JCDS' approach to engaging with _joyful_ Judaism, and what it means for our children and our family in their development as Jews. (As a side note: Gann's explicitly pro-Zionist stance, which is effectively a pro-State-of-Israel stance verging on anti-Palestinian stance, is wildly uncomfortable and inappropriate, and we appreciate the more nuanced presentation of Israel as being _more_ than the current government of the state Israel, led by Israelis.)"
+  },
+  {
+    "organization": "JCDS",
+    "row": 24,
+    "comment": "It wasn't clear in the wording of the survey whether these offerings/foci were for kids, parents, families, staff, etc. That will affect your results. I'm also less clear now than before on what JCDS prioritizes/does well and thinks is important to focus on in terms of their curriculum versus what they ought to offer the community."
+  },
+  {
+    "organization": "JCDS",
+    "row": 25,
+    "comment": "Respect and understanding of the full range of Jewish denominations. Exploration of the many meanings of what people mean when they talk about God, the many concepts and names for God, and giving space for agnosticism."
+  },
+  {
+    "organization": "JCDS",
+    "row": 26,
+    "comment": "I wish the middle school curriculum offered a stronger emphasis on Jewish practice and Jewish text study. There's a considerable gulf between what my child is learning in Social Studies, English, Math, and Science on one hand and Tanakh and Toshba on the other."
+  },
+  {
+    "organization": "JCDS",
+    "row": 27,
+    "comment": "JCDS on its surface is very pluralistic (\"everyone is welcome\") but in reality, over the  years, I have seen many people excluded from this weird community. I would really make it a priority to make everyone truly welcome. Not only those types of \"different\" that for some reason are acceptable."
+  },
+  {
+    "organization": "JCDS",
+    "row": 28,
+    "comment": "Two thoughts:\n1. There is a general fear in Israel education that learning about Israel's faults, or critiques people (especially Palestinians and anti-zionist Jews) have towards the state of Israel will prevent students from forging a connection with Israel and maybe will even distance students from Israel and Jewish life all together. I don't think we should give in to this fear, even if those outcomes might be true for some of the students. \n2. It is not that I am opposed to teaching advocacy skills, I just have questions about what JCDS would be encouraging students to advocate for or what the process looks like for determining what that would entail."
+  },
+  {
+    "organization": "JCDS",
+    "row": 29,
+    "comment": "Developing pride in being Jewish."
+  },
+  {
+    "organization": "JCDS",
+    "row": 30,
+    "comment": "4 to please remember that not all parents are fluent in Hebrew terms or common expressions, so to strive to provide translations in print or speech when possible. Thank you for creating such a welcoming and supportive space!"
+  },
+  {
+    "organization": "JCDS",
+    "row": 31,
+    "comment": "We would love to see a greater effort to connect with interfaith families and explore how that identity shapes who we are in the community. Also a greater effort to discuss conversion and race."
+  },
+  {
+    "organization": "JCDS",
+    "row": 32,
+    "comment": "Currently, some of the Hebrew levels mean that non-Israelis do not get to practice their Hebrew skills with Israelis.  While it is important that everyone gets to practice Hebrew at the best level for them, one of the gifts of being at JCDS is the ability for American kids to learn Hebrew from Israeli kids.  It would be great if monthly, or weekly, or some at some other cadence, the lower levels of Hebrew would get a chance to practice their Hebrew with the higher levels."
+  },
+  {
+    "organization": "JCDS",
+    "row": 33,
+    "comment": "In general, I feel that there should be a separation of any political issues (american or israeli) from the learning in school - I think this detracts from a safe space and cohesive community. I also do not feel that the 'palestinian perspective' or any narratives on nakba have a place here, especially for younger students. I am hoping the school focuses on biblical connection to the land of israel, and love of the land. \nI appreciate the focus on jewish religious practices, traditions, torah, mitzvot - as well as reading, writing, and math!"
+  },
+  {
+    "organization": "JCDS",
+    "row": 34,
+    "comment": "In general, I want my children to be proficient in learning the sacred texts, language, history, customs and rites of the Jewish people. \n\nSo many questions on this survey addressed aspects of Jewish meaning, purpose, interpretation in modern life.  JCDS is pluralistic, so when JCDS teaches values, I don’t know what that means or what you are teaching. What are the specific Jewish values of JCDS?  And this is why JCDS is not a place we seek or enjoy community engagement. The community isn’t based on concrete values that  we need to bind us together in shared purpose. \n\nIf JCDS wants to be a serious Jewish Institution that families turn to for community Jewish engagement, there have to be shared common Jewish principles that turn people into a community instead of awkward acquaintances who might not have a single value in common. I would be so thrilled for JCDS to challenge itself and grow a coherent, serious Jewish identity for us to coalesce around. \n\nThat said- my kids are very happy and enjoying school!"
+  },
+  {
+    "organization": "JCDS",
+    "row": 35,
+    "comment": "Explroation of diversity of subcomunities within the larger Jewish community (eg Ultra Orthodox, Satmer, Chasidism etc)"
+  },
+  {
+    "organization": "JCDS",
+    "row": 36,
+    "comment": "We are very pleased with holistic offerings at JCDS!"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 9,
+    "comment": "We are working on rebuilding the tefillah program at JDS and I look forward to when it is able to be more robust and the students have the skills that they used to have."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 10,
+    "comment": "Take traditions and rituals and continually reinterpret them for the modern world so as to connect with people who are more progressive or secular in their religious practices."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 11,
+    "comment": "I teach 1st grade, so my answers are mostly my perspective of what is being taught in 1st grade."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 12,
+    "comment": "I *strongly* urge JDS to consider bringing Jewish opponents of the Netanyahu administration and/or Israel's military campaign in Gaza (which at this time is still ongoing, despite an inconsistent ceasefire and apparent progress toward peace), including potential state-building efforts in Gaza, to speak at JDS. I think it is 4 that students develop a more complete and nuanced understanding of this issue and become more aware that Jews (in the United States, Israel, and around the world) are by no means united in support of the Netanyahu administration or Israel's military campaign in Gaza. (In fact, reputable polls suggest that a majority of American Jews are opposed to Israel's military campaign in Gaza.)"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 13,
+    "comment": "I think the survey was very comprehensive!"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 14,
+    "comment": "no"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 15,
+    "comment": "There is a huge emphasis on tradition which is great; while at the same time it blocks out many efforts towards having positive impacts within the school community and in the wider community. The focus feels almost exclusively on Jewish traditions and little else."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 17,
+    "comment": "This is just a personal preference but I would like to see the school focus more on instilling beautiful Jewish values than Israeli identity."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 18,
+    "comment": "I washed sure about a lot of the things."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 19,
+    "comment": "I'm assistant teacher in first grade and also non Jewish so many questions were hard for me to answer as I don't have information about Jewish learning happening in upper grades."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 26,
+    "comment": "It's 4 to me to make sure that Jewish students understand that critical thinking and human rights are essential to Jewish life and values and to understand and honor a multiplicity of perspectives, Jewish and non-Jewish alike, regarding current events."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 27,
+    "comment": "I’d like to see the school lean further into the “J” in JDS. Strong academics matter and should continue, but families don’t choose JDS for a secular experience with a light layer of Judaism on top. The school has an opportunity to give students real literacy in Jewish life: not only Hebrew and holidays, but the calendar, rituals, traditions, and the range of current practice across denominations, the diaspora, and Israel.\n\nThere’s a large body of Jewish knowledge that most adults don’t fully learn, and JDS is one of the only places where kids can get that foundation. It’s a real differentiator from other K–8 private schools. This doesn’t require promoting one style of Judaism or weakening the general studies program. It means treating Jewish learning as a deep, ongoing curriculum. More exposure to Israelis, Orthodox communities, and the range of Jewish thinkers and practices would strengthen that mission.\n\nIf JDS wants to cover topics like the environment or feminism, there are Jewish organizations (even in the orthodox world) and Jewish sources that approach those subjects from inside the tradition. “Tikkun olam” doesn’t need to default to work centered on non-Jewish causes. Students should see how these themes already live within Jewish life."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 28,
+    "comment": "I think in general, our kids unfortunately need to learn how to handle verbal attacks of lies and misinformation; having the knowledge of actual facts to counter the lies and having the skill-set to be able to calmly handle a heated confrontation. Anything JDS can do to help support learning those skill sets would be greatly appreciated"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 29,
+    "comment": "In an ideal world, everything in this survey is prioritized to some extent. I want my child exposed to a diverse array of Jewish thought, ideas, people, prayer, culture, spirituality. This includes multiple narratives when it comes to Israel, halacha, and other controversial Jewish thoughts. I want her to be able to develop a strong sense of Jewish identity and experience Jewish pride and joy regularly without being told how to think or act jewishly or that this is any one right way of being Jewish.\nI see myself as a happy and willing partner (and even guide) in her Jewish education, and know that my vision above cannot exist in a vacuum at school without being fully supported, and even initiated at home."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 30,
+    "comment": "I think it is 4, when addressing the narratives of the Jews and Palestinians that it is done in a STRICTLY fact-based and historical manner. The personal opinions or feels of those teaching this topic cannot be a component, no matter which way they sway. Teaching so that it is understood that Jews are indigenous to Judea (modern day Israel) AND that fact doesn’t exclude Palestinians from living there side by side in peace is important."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 31,
+    "comment": "American Patriotism: Supporting and discussing the role of being an American Jew or a Jewish American (i.e., how does being an American affect being Jewish and the other way around)."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 32,
+    "comment": "As we approach a big Christian holiday season, I realize my children feel envious of the environment and their lack of participation. It is important for them to understand the sensitivity of respecting other while still feeling confident and proud to be Jewish through what I can only imagine is a hard time for a child to watch so much celebration and their own holidays are rarely acknowledged in relation with the larger population."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 33,
+    "comment": "It is critical that the school offer text-based learning in the original Hebrew and daily prayer services (with actual traditional prayers in Hebrew), which is a core tenet of religious practice and study for a major portion of the practicing Jewish community.  This is a basic building block provided by leading Jewish schools across the country (and world).  Not offering these critical parts of Jewish education and experience actively excludes a large segment of potential families from the school."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 34,
+    "comment": "In general I prefer the children learn Jewish and Hebrew subject that are more relevant for modern Life and less about prayers and ancient costumes or rituals."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 35,
+    "comment": "Would love to learn more about Ladino!"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 36,
+    "comment": "Yes. Don’t discriminate against Orthodox Judaism."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 37,
+    "comment": "The survey made a habit of lumping together ideas that should have been separated.  It’s exactly what I was cautioning against before this went out to the community.  Ours and beyond. The survey was leading in many areas, without providing examples for statements left for reader discretion, or areas for comments by the reader to clarify.   again, exactly what we should have taken extreme care to avoid.  - Erez."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 38,
+    "comment": "All of the topics mentioned are 5. The challenge is knowing whether the faculty will approach these subjects in a way that honors the mission of the school and are in-line with the mainstream views of the Jewish community."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 39,
+    "comment": "Eager to hear these results"
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 40,
+    "comment": "Some of the questions were confusing to me because, while I absolutely want my children to be exposed to multiple perspectives and to uphold the dignity of all people, it is equally important to me that this is always done through a Jewish and Zionist lens. If I wanted my kids to receive a general education without an emphasis on Jewish tradition, culture, and values, I could do that without paying the premium of a JDS education.\n\nI have been personally struggling with continuing to pay for this school when I don’t currently feel that the administrators—and quite frankly, many of the teachers—fully understand the weight, purpose, and necessity of a strong Jewish education, nor do I feel confident that they are qualified to deliver it. I also don’t feel that parent feedback is welcomed or valued, which makes the school feel uninviting at times. Friends who send their children to other Jewish day schools describe being regularly welcomed into prayer and ritual experiences, and I would never feel comfortable joining here. I’m not even certain that regular tefillah or halachic practice is taking place. For example: Do boys wear kippot? Are students learning a full Shacharit or Kabbalat Shabbat service in preparation for their b’nai mitzvah?\n\nAdditionally, I have received several worksheets that appear to be sourced from random corners of the internet. One even included a questionable map of Israel that caused significant concern for my family. It is unclear whether there is meaningful oversight, expectations, or standards around curriculum—especially regarding Jewish and Israel education.\n\nI truly hope this survey provides useful insight and leads to positive change. I deeply want to feel confident continuing to send my children to this school, and I believe that strengthening these areas is essential for that to happen."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 41,
+    "comment": "The questions were leading and lumped together pairs of things that should have been separated.  The Wokism was ridiculous and should be wholly abandoned.   Sadly, we wasted a valuable opportunity to get honest and meaningful information from our current families."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 42,
+    "comment": "We send our kids to JDS largely because of Jewish values.\n\nWe have a particular concern about how much of the Jewish community in the Seattle-region does NOT have strong sense of Jewish values.  In particular, many have far left progressive values (one might use the term woke values), and they often repurpose their alleged Jewish values to instead focus on using Jewish resources to advocate for progressive political values.\n\nThis is particularly true with the term \"social justice\", where the Jewish concept of social justice is quite different than the progressive political use of the term social justice.  That sometimes means realignment with groups like Black Lives Matter, that use the language of social justice to create actions and policies that can directly hurt Jewish people and Jewish communities.\n\nIt's important to us that in advocating for social justice, that it's consistent with the traditional Jewish concept, rather than the progressive political sense."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 43,
+    "comment": "JDS must be proudly and unapologetically Jewish, Zionist, and Hebraist. It must not muddle fashionable and trendy political movements with Judaism and Jewish practice. Teach Hebrew not \"Hebrew words and phrases\" which is an easy copout and was mentioned as an option in the survey. Teach Kashrut (whether kids keep kosher or not) and not \"ethical eating practices\" (which has no definition and which was unethically and inexcusably mixed in with the same question!) Judaism has no clear position on environmentalism, despite a couple of decades of fashionable teaching. Keep core Judaism and Zionism and history, not trendy political activism as Judaism; stay focused."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 44,
+    "comment": "It's important that JDS teach Jewish values, history, and provide each student with a strong religious and academic education that gives them confidence and pride in being Jewish and as part of a larger community. JDS students should be prepared to be successful in their next steps in high school and beyond. JDS should clearly be pro-Israel. JDS should also promote the value of living in a democracy and teach pride for the freedoms we have living in the USA. JDS should make sure their curriculum and values do not promote an activism that leans in a progressive left or far right direction.  Jewish values, not a political party should be the guide.  Learning about the nature of the debate is useful, but aligning with a particular side does not promote the critical thinking skills that we should encourage at a Jewish school."
+  },
+  {
+    "organization": "Jewish Day School of Seattl",
+    "row": 45,
+    "comment": "While I understand that this survey is focused on the aspect of being Jewish at JDS, I am wondering when and where we get to make the bridge to academics and how these areas overlap. There is an academic/schooling/learning aspect that I don't think gets addressed or discussed enough for a school."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 13,
+    "comment": "Need a place for lonely seniors\nHave opportunities for singles to meet"
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 17,
+    "comment": "Not a fan of the survey. It basically just was a list of buzzwords that had little to do with actual programs."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 18,
+    "comment": "navigating Jewish identity vs Jewish religion"
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 19,
+    "comment": "Build and enlarge the facilities for more activities"
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 20,
+    "comment": "The JCC should make a greater effort to include the Sephardic community when planning events. The Jewish community in Toronto is very diverse and there is so much we can learn from each other."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 21,
+    "comment": "Hello, maybe you can detect from the survey responses that I am not Jewish.  My involvement at the JCC is the gym and fitness classes which are wonderful.  Thank you for making me welcomed ."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 22,
+    "comment": "It would be great if the JCC could offer evening classes for Adults to learn conversational Hebrew, or other enriching opportunities."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 24,
+    "comment": "na"
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 25,
+    "comment": "i suggest you add jewish and isreali feeling and culture in the fitness experience. This can be done by playing hebrew songs, doing events related to israel etc. This had been done in the past at SRC and now feels very watered down. I suggest you make it feel more like a Jewish community center gym rather than a generic gym. In the past we had events like ride to israel, as a example where we had a ride in the spin studio to contemporary Israeli music. This is just one example. Members i have heard say the last 2 years that the JCC is a refuge from the outside world. A more Jewish feel would add to that."
+  },
+  {
+    "organization": "Prosserman JCC & Schwartz Reism",
+    "row": 26,
+    "comment": "I’m not Jewish. I’m from the tribe of Ephram, Father Joseph’s second son."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 9,
+    "comment": "Jewish life and learning is geared mostly towards student learning, and is centered around reading texts in Hebrew and translating and discussing the meaning, as well as celebrating holidays, and singing Hebrew songs.  Native Hebrew classes provide the biggest cultural lens in upper Elementary school where students learn a lot about modern topics affecting Jews around the world. I feel there to be less of a felt influence on the historical and modern day social/cultural/political aspects of Judaism this year than in recent years. There are fewer opportunities for the community to join in on Jewish learning events led by students. I don't feel there are many Jewish learning opportunities for staff to take part in outside of 2x a year - at the end of the school year PD and beginning of the school year PD. I don't think there are any Jewish volunteering/leadership opportunities available to staff, or many for the general Wornick community outside of volunteering at events at the school. A couple years ago JS directors led a year of Jewish Joy that worked to bring love of Judaism into staff culture, and Roy Meron led meetings with staff members and parents to talk about the situation in Israel after the war started. There has also been an event with the community in memorial of Oct. 7th. There is the Hebrew Cafe, but it is optional and I don't know if anyone actually joins, and there are shabbat dinners with Hebrew staff happening 2x a year. Sometimes Judaism at Wornick (from a staff perspective) feels timid and designated to certain times because instead of taking a stance, or fully embracing difference, sometimes it feels it is easier to avoid it outside of the classroom or outside of an organized tefillah/simcha. Meaning Judaism's place at Wornick is within Jewish Studies and Hebrew classes, at a prayer service, a bar/mat mitzvah, Jewish/Israeli holiday or memorial ceremony. It is carefully contained."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 10,
+    "comment": "I’d like more representation as an American Jew. Our culture has become so Israeli-focused that I feel underrepresented and undervalued."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 11,
+    "comment": "It would be great to do Torah text study with Rashi's commentaries"
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 18,
+    "comment": "Thank you for asking. Based on my responses, I think I am much more interested in \"Jewish Values\", leadership, and community, and I am less concerned about some of the formal religious education, though that still matters."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 19,
+    "comment": "Everything is perfect. Wornick is a great and the best example of how the Jewish school in the modern world has to be. Wornick is much better than other Jewish schools in the area where we have been and seen. Thank you to the teachers, administration, community and Adam Eilat - who is a heart of this school! Go Rams!"
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 20,
+    "comment": "I noticed the questions were mostly about Jewish practices and culture, but less Jewish values. The most important thing I want for my kids is to be good people, good citizens of the world. This doesn't require them to know how to pray, or speak Hebrew, or defend Israel. I can celebrate the holidays and learn prayer in my congregation, but unfortunately I have yet to find another school that has any integrity when it comes to raising young adults into good people, and the leaders of tomorrow.\nYes, the education I am looking for is based on Jewish ideas, learnings, and culture, but for me it's not the goal, it's just the path. I think my answers reflect that, but might be difficult to interpret that way."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 21,
+    "comment": "I'd love for Hebrew to be more immersive and conversational. It feels like there is an effort tog et there and that is great. I think Worncik insitlls a love for Israel in both students and families which was a bonus for me to be able to appreciate and love Israel along with my children."
+  },
+  {
+    "organization": "Ronald C. Wornick Jewish Da",
+    "row": 22,
+    "comment": "Characters of Jewish congregations in the US, including the main differences between: (1) the main Jewish factions - Orthodox, Conservative and Reform, and (2) between the diaspora jewry and the jews in Israel"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 9,
+    "comment": "Our driving Jewish value is Chachnasat orchim, hospitality."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 10,
+    "comment": "Thank you!"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 14,
+    "comment": "Would be great to offer a beginning Hebrew class"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 15,
+    "comment": "The Shames JCC serves a large population of non-Jewish community members as well as those who are Jewish.  Recognizing this, I have observed that many of the organization's programs and events are directly related to Jewish culture, history, values, rituals, and observances, and I hope those reading these surveys and drawing conclusions will also read, for example, a handful or sampling of the Shames JCC's weekly (sometimes more than weekly) e-mail newsletters, which provide valuable insight into how our programming relates to Judaism in many diverse ways. The Shames JCC has strong partnerships with most of the area synagogues, which we treasure.  Still--it is a balancing act between offering strong Jewish-related programming, not competing with or trying to be a synagogue, and also embracing the many non-Jewish members and participants we serve."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 16,
+    "comment": "The Rabbi's personality has more to do with my participating in Jewish activities than the subject. I wouldn't attend if I didn't like what6 he has to say and the way that he presents ideas."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 17,
+    "comment": "Group travel to Israel or other locations with Jewish history/significance."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 18,
+    "comment": "I'd love to see us lean in more on Jewish issues, especially Israel.  I don't like the idea of hosting \"debates\", but I love panel discussions where different perspectives are presented and discussed respectfully.  We need more of that in our community so people can feel more comfortable having the conversations they consider difficult.  And I'd love to do something for Yom Ha'atzmaut and perhaps be part of a Shames JCC contingent that goes to the Israel parade in the spring."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 22,
+    "comment": "As an engaged member of Woodlands Commuity Temple and a rabbi, I do not depend on the JCC for my Jewish learning and spiritual development. I enjoy attending lectures on Israel and cultural programs."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 23,
+    "comment": "JCC shoulod be a welcoming place to non-Jews and enable them to get some questions answered."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 24,
+    "comment": "I think it’s important to make the distinction between the JCC as a social  community and a Temple. Personally I believe that aTemple should focus on many of the activities mentioned in this survey and not  the JCC"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 25,
+    "comment": "I enjoyed the Chavura’s high holiday services at the JCC and would like to see it again in the future."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 26,
+    "comment": "Seems like all angles were covered. I am so impressed with the efforts the JCC is making in this direction through the guidance of our Rabbi Ron Symons. Very excited about connecting to my Jewish routs through the JCC! \nShalom,\nHarley Dembert"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 27,
+    "comment": "Honestly, I only joined because of the gym."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 28,
+    "comment": "No, thank you.  And, thank you for providing the Jewish programs that you do!"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 29,
+    "comment": "This survey is quite comprehensive.  As an active member of a synagogue, I address many of these needs in my synagogue community.  I appreciate that the JCC has so many offerings to deepen and strengthen our connection to Judaism, yet I hope that people will continue to be synagogue members.  Thank you."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 30,
+    "comment": "Since Rabbi Ron is a reform Rabbi and I go to a conservative shul, I think the J can fill an important role in my spiritual journey. I think the J is a more open environment to be critical of the Israeli government, for example."
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 31,
+    "comment": "no"
+  },
+  {
+    "organization": "Shames JCC on the Hudson",
+    "row": 32,
+    "comment": "I think the Shames JCC is excellent, and has a good balance of programs. Thank you for your efforts."
+  },
+  {
+    "organization": "Temple Beth Israel Religiou",
+    "row": 12,
+    "comment": "I responded with a view to the temple as a whole. I don’t know what occurs within the children’s religious school. A small number of members making strong efforts, but many disengaged members."
+  },
+  {
+    "organization": "Temple Beth Israel Religiou",
+    "row": 13,
+    "comment": "I don't think the board is up to date on the day-to-day/week-to-week of the Religious School. It would be nice to know where the curriculum comes from. How the year is laid out, and what subject matter is important to the grade levels. It would be nice if the board were more in the loop about it. When we are in the community and when asked about what is being taught we would be able to give some answer."
+  },
+  {
+    "organization": "Temple Beth Israel Religiou",
+    "row": 17,
+    "comment": "A more balanced approach to Israel.  As Jews we can value Israel but also acknowledge the wrongs.  The Temple leadership (not the rabbi but others especially in the religious school) has been very biased about Israel and have not in my experience presented the Palestinian perspective and have not acknowledged some of the atrocities the Israeli government has committed. I want my community to understand that we as Jews can respect Israel and want it to exist while also being unhappy with how the Israeli government is behaving."
+  },
+  {
+    "organization": "Temple Beth Israel Religiou",
+    "row": 18,
+    "comment": "No"
+  }
+];
 
-    // Organization class mapping
+    // Organization class mapping (Legacy support, but we use dynamic colors now)
     const orgClassMap = {
       'Beth Emeth Synagogue': 'org-bethemeth',
       'JBO': 'org-jbo',
@@ -1500,17 +1968,40 @@
       'Temple Beth Israel Religious School': 'org-templebeth'
     };
 
+    // Dynamic color generation
+    function stringToColor(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const hue = Math.abs(hash % 360);
+      return `hsl(${hue}, 70%, 45%)`;
+    }
+
     function getOrgClass(orgName) {
       return orgClassMap[orgName] || '';
     }
 
     function createCommentCard(comment) {
-      const orgClass = getOrgClass(comment.organization);
+      // Use dynamic color if not in legacy map, or always use dynamic?
+      // User said "each organization has its own page" in the original prompt, 
+      // but the immediate request is to "include them in comment viewer".
+      // I'll stick to the single viewer with filters for now.
+      
+      const color = stringToColor(comment.organization);
+      const badgeBg = color.replace('hsl', 'hsla').replace(')', ', 0.15)');
+      
+      const groupText = comment.group ? `• ${comment.group}` : '';
+      
+      // We will rely on inline styles for the new orgs, and keep classes for old if they exist, 
+      // but actually the dynamic color is better for all.
+      // Let's use dynamic color for everything to be consistent.
+      
       return `
-                <div class="comment-card ${orgClass}">
+                <div class="comment-card" style="--org-color: ${color}">
                     <div class="card-header">
-                        <span class="org-badge">${comment.organization}</span>
-                        <span class="row-number">Row ${comment.row}</span>
+                        <span class="org-badge" style="background: ${badgeBg}; color: ${color};">${comment.organization}</span>
+                        <span class="row-number">Row ${comment.row} ${groupText}</span>
                     </div>
                     <div class="comment-text">${escapeHtml(comment.comment)}</div>
                 </div>
@@ -1518,6 +2009,7 @@
     }
 
     function escapeHtml(text) {
+      if (!text) return '';
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML.replace(/\n/g, '<br>');
@@ -1545,6 +2037,9 @@
     function populateOrgFilter() {
       const orgs = [...new Set(commentsData.map(c => c.organization))].sort();
       const select = document.getElementById('orgFilter');
+      
+      // Clear existing options except first
+      select.innerHTML = '<option value="">All Organizations</option>';
 
       orgs.forEach(org => {
         const option = document.createElement('option');
@@ -1559,8 +2054,11 @@
       const selectedOrg = document.getElementById('orgFilter').value;
 
       let filtered = commentsData.filter(comment => {
-        const matchesSearch = comment.comment.toLowerCase().includes(searchTerm) ||
-          comment.organization.toLowerCase().includes(searchTerm);
+        const commentText = comment.comment ? comment.comment.toString().toLowerCase() : '';
+        const orgText = comment.organization ? comment.organization.toLowerCase() : '';
+        
+        const matchesSearch = commentText.includes(searchTerm) ||
+          orgText.includes(searchTerm);
         const matchesOrg = !selectedOrg || comment.organization === selectedOrg;
         return matchesSearch && matchesOrg;
       });
@@ -1588,7 +2086,7 @@
       document.getElementById('searchInput').addEventListener('input', filterAndSort);
       document.getElementById('orgFilter').addEventListener('change', filterAndSort);
     });
-  </script>
+    </script>
 </body>
 
 </html>
